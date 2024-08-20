@@ -1,23 +1,28 @@
-import { auth, currentUser } from "@clerk/nextjs/server";
+"use client";
 
-export default async function Page() {
-  // Get the userId from auth() -- if null, the user is not signed in
-  const { userId } = auth();
+import { Button } from "@/components/ui/button";
+import { ToastAction } from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 
-  if (userId) {
-    // Query DB for user specific information or display assets only to signed in users
-  }
-
-  // Get the Backend API User object when you need access to the user's information
-  const user = await currentUser();
-  // Use `user` to render user details or create UI elements
+export default function Page() {
+  const { toast } = useToast();
   return (
     <div>
       <h1>Welcome to the Dashboard</h1>
-      <p>Hi, {user?.fullName}!</p>
-      <pre>
-        <code>{JSON.stringify(user, null, 2)}</code>
-      </pre>
+      <Button
+        variant="outline"
+        onClick={() => {
+          toast({
+            title: "Scheduled: Catch up ",
+            description: "Friday, February 10, 2023 at 5:57 PM",
+            action: (
+              <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+            ),
+          });
+        }}
+      >
+        Add to calendar
+      </Button>
     </div>
   );
 }
