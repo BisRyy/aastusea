@@ -11,6 +11,8 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/layout/navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -43,7 +45,16 @@ export default function RootLayout({
             <UserButton />
           </SignedIn> */}
           <Toaster />
+          <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+
           {children}
+        </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

@@ -7,7 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 export default function Page() {
   const { toast } = useToast();
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center h-screen space-y-4">
       <h1>Welcome to the Dashboard</h1>
       <Button
         variant="outline"
