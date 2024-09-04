@@ -48,7 +48,7 @@ export const HeroSection = () => {
               className="w-5/6 md:w-1/4 font-bold"
             >
               <Link href="https://t.me/aastusea" target="_blank">
-                Telegram
+                Telegram Community
               </Link>
             </Button>
           </div>

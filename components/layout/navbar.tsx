@@ -36,37 +36,42 @@ interface FeatureProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "/#learning",
+    label: "Learning",
   },
   {
-    href: "#team",
+    href: "/#projects",
+    label: "Projects",
+  },
+  {
+    href: "/#events",
+    label: "Events",
+  },
+  {
+    href: "/#team",
     label: "Team",
   },
   {
-    href: "#contact",
-    label: "Contact",
-  },
-  {
-    href: "#faq",
+    href: "/#faq",
     label: "FAQ",
   },
 ];
 
 const featureList: FeatureProps[] = [
   {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
+    title: "Learn Continuously",
+    description:
+      "Offer trainings and workshops to expand students knowledge and development skills.",
   },
   {
-    title: "Build Trust",
+    title: "Practice Effectively",
     description:
-      "Leverages social proof elements to establish trust and credibility.",
+      "Facilitate hands-on projects and coding challenges to apply learning in real-world scenarios.",
   },
   {
-    title: "Capture Leads",
+    title: "Advance Careers",
     description:
-      "Make your lead capture form visually appealing and strategically.",
+      " Provide mentorship, resume support, and networking opportunities to help students secure job placements.",
   },
 ];
 
@@ -127,7 +132,7 @@ export const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
-                    className="justify-start text-base"
+                    className="justify-start text-base hover:underline"
                   >
                     <Link href={href}>{label}</Link>
                   </Button>
@@ -148,8 +153,17 @@ export const Navbar = () => {
       <NavigationMenu className="hidden lg:block mx-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
+            {routeList.map(({ href, label }) => (
+              <NavigationMenuLink key={href} asChild>
+                <Link href={href} className="text-base px-2 hover:underline">
+                  {label}
+                </Link>
+              </NavigationMenuLink>
+            ))}
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuTrigger className="bg-card text-base">
-              Features
+              Our Mission
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="grid w-[600px] grid-cols-2 gap-5 p-4">
@@ -169,7 +183,7 @@ export const Navbar = () => {
                       <p className="mb-1 font-semibold leading-none text-foreground">
                         {title}
                       </p>
-                      <p className="line-clamp-2 text-muted-foreground">
+                      <p className="line-clamp-3 text-muted-foreground">
                         {description}
                       </p>
                     </li>
@@ -177,16 +191,6 @@ export const Navbar = () => {
                 </ul>
               </div>
             </NavigationMenuContent>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem>
-            {routeList.map(({ href, label }) => (
-              <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
-                  {label}
-                </Link>
-              </NavigationMenuLink>
-            ))}
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

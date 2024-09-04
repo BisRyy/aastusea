@@ -5,6 +5,7 @@
 // import { FeaturesSection } from "@/components/layout/sections/features";
 // import { FooterSection } from "@/components/layout/sections/footer";
 import { HeroSection } from "@/components/layout/sections/hero";
+import CoursesPage from "./learning/page";
 // import { PricingSection } from "@/components/layout/sections/pricing";
 // import { ServicesSection } from "@/components/layout/sections/services";
 // import { SponsorsSection } from "@/components/layout/sections/sponsors";
@@ -12,30 +13,28 @@ import { HeroSection } from "@/components/layout/sections/hero";
 // import { TestimonialSection } from "@/components/layout/sections/testimonial";
 
 export const metadata = {
-  title: "Shadcn - Landing template",
+  title: "AASTU Software Engineers Association",
   description: "Free Shadcn landing page for developers",
   openGraph: {
     type: "website",
     url: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "Shadcn - Landing template",
+    title: "AASTU Software Engineers Association",
     description: "Free Shadcn landing page for developers",
     images: [
       {
         url: "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
         width: 1200,
         height: 630,
-        alt: "Shadcn - Landing template",
+        alt: "AASTU Software Engineers Association",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "Shadcn - Landing template",
+    title: "AASTU Software Engineers Association",
     description: "Free Shadcn landing page for developers",
-    images: [
-      "/logo-full-light.png",
-    ],
+    images: ["/logo-full-light.png"],
   },
 };
 
@@ -43,17 +42,18 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      {/* <CoursesPage /> */}
     </>
   );
 }
-      // <SponsorsSection />
-      // <BenefitsSection />
-      // <FeaturesSection />
-      // <ServicesSection />
-      // <TestimonialSection />
-      // <TeamSection />
-      // <CommunitySection />
-      // <PricingSection />
-      // <ContactSection />
-      // <FAQSection />
-      // <FooterSection />
+// <SponsorsSection />
+// <BenefitsSection />
+// <FeaturesSection />
+// <ServicesSection />
+// <TestimonialSection />
+// <TeamSection />
+// <CommunitySection />
+// <PricingSection />
+// <ContactSection />
+// <FAQSection />
+// <FooterSection />
