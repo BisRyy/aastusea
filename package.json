@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.3.1",
@@ -21,6 +22,7 @@
     "lucide-react": "^0.438.0",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
+    "p-retry": "^6.2.0",
     "react": "^18",
     "react-dom": "^18",
     "shadcn-ui": "^0.9.0",
@@ -31,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "husky": "^9.1.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

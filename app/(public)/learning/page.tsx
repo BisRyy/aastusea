@@ -23,7 +23,7 @@ export default function CoursesPage() {
         Start learning today!
       </p>
       {/* Upcoming */}
-      <h2 className="text-xl font-semibold my-10">New Courses</h2>
+      <h2 className="text-2xl font-semibold my-10">New Courses</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {NewCourses.slice(0, 3).map((course, index) => (
           <Card key={index} className="flex flex-col h-full">
@@ -65,7 +65,7 @@ export default function CoursesPage() {
       </div>
 
       {/* All Courses */}
-      <h2 className="text-xl font-semibold my-10">All Courses</h2>
+      <h2 className="text-2xl font-semibold my-10">All Courses</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {AllCourses.map((course: any, index: number) => (
           <Card key={index} className="flex flex-col h-full">
