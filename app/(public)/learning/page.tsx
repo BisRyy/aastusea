@@ -66,9 +66,9 @@ export default function CoursesPage() {
 
       {/* All Courses */}
       <h2 className="text-2xl font-semibold my-10">All Courses</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {AllCourses.map((course: any, index: number) => (
-          <Card key={index} className="flex flex-col h-full">
+          <Card key={index} className="flex flex-col h-full border-gray-500">
             <CardHeader className="p-0">
               <div className="relative w-full h-56">
                 <Image
@@ -82,7 +82,7 @@ export default function CoursesPage() {
             </CardHeader>
             <CardContent className="flex-grow p-4">
               <Link href={course.link} passHref target="_blank">
-                <CardTitle className="mb-2 hover:underline transition-shadow">
+                <CardTitle className="mb-2 hover:underline transition-shadow line-clamp-1">
                   {course.title}
                 </CardTitle>
               </Link>
@@ -90,7 +90,7 @@ export default function CoursesPage() {
                 Sponsored By:{" "}
                 <span className="font-semibold">{course.company}</span>
               </CardDescription>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
                 {course.description}
               </p>
             </CardContent>

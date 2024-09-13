@@ -55,7 +55,7 @@ export const NewCourses = [
     description:
       "Learn the basics of web development, including programming languages and tools, and web accessibility.",
     company: "Microsoft Learn",
-    image: "/courses/8.png",
+    image: "/courses/9.png",
     link: "https://learn.microsoft.com/en-us/training/paths/web-development-101?tab=tab-created&learnerGroupId=ef5ae42f-2a14-4a7b-a09f-6faa55ff16fe&wt.mc_id=studentamb_410163",
   },
   {
@@ -63,7 +63,15 @@ export const NewCourses = [
     description:
       "Learn how to create your first web apps using React, a popular JavaScript library for building user interfaces.",
     company: "Microsoft Learn",
-    image: "/courses/9.png",
+    image: "/courses/8.png",
     link: "https://learn.microsoft.com/en-us/training/paths/react?tab=tab-created&learnerGroupId=c23c888e-45eb-4c9f-a616-4e196c738e7b&wt.mc_id=studentamb_410163",
+  },
+  {
+    title: "Build JavaScript applications with Node.js",
+    description:
+      "Node.js provides a large set of built-in APIs that help you build various types of applications, command-line apps, web apps, and more. ",
+    company: "Microsoft Learn",
+    image: "/courses/7.png",
+    link: "https://learn.microsoft.com/en-us/training/paths/build-javascript-applications-nodejs?tab=tab-created&learnerGroupId=ef5ae42f-2a14-4a7b-a09f-6faa55ff16fe&wt.mc_id=studentamb_410163",
   },
 ];
