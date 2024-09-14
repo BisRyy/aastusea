@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { AllCourses, NewCourses } from "@/data/courses";
+import { AllCourses } from "@/data/courses";
 import { ArrowRight } from "lucide-react";
 
 export default function CoursesPage() {
@@ -25,43 +25,46 @@ export default function CoursesPage() {
       {/* Upcoming */}
       <h2 className="text-2xl font-semibold my-10">New Courses</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {NewCourses.slice(0, 3).map((course, index) => (
-          <Card key={index} className="flex flex-col h-full">
-            <CardHeader className="p-0">
-              <div className="relative w-full h-56">
-                <Image
-                  src={course.image}
-                  alt={`${course.title} course image`}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  className="rounded-t-lg"
-                />
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow p-4">
-              <Link href={course.link} passHref target="_blank">
-                <CardTitle className="mb-2 hover:underline transition-shadow">
-                  {course.title}
-                </CardTitle>
-              </Link>
-              <CardDescription className="mb-2">
-                Sponsored By:{" "}
-                <span className="font-semibold">{course.company}</span>
-              </CardDescription>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                {course.description}
-              </p>
-            </CardContent>
-            <CardFooter className="p-4 flex justify-end">
-              <Link href={course.link} passHref target="_blank">
-                <Button className="w-full group/arrow">
-                  Start Learning
-                  <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        ))}
+        {AllCourses.reverse()
+          .slice(0, 3)
+          .reverse()
+          .map((course: any, index: number) => (
+            <Card key={index} className="flex flex-col h-full">
+              <CardHeader className="p-0">
+                <div className="relative w-full h-56">
+                  <Image
+                    src={course.image}
+                    alt={`${course.title} course image`}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="rounded-t-lg"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow p-4">
+                <Link href={course.link} passHref target="_blank">
+                  <CardTitle className="mb-2 hover:underline transition-shadow">
+                    {course.title}
+                  </CardTitle>
+                </Link>
+                <CardDescription className="mb-2">
+                  Sponsored By:{" "}
+                  <span className="font-semibold">{course.company}</span>
+                </CardDescription>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  {course.description}
+                </p>
+              </CardContent>
+              <CardFooter className="p-4 flex justify-end">
+                <Link href={course.link} passHref target="_blank">
+                  <Button className="w-full group/arrow">
+                    Start Learning
+                    <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
       </div>
 
       {/* All Courses */}
@@ -80,9 +83,9 @@ export default function CoursesPage() {
                 />
               </div>
             </CardHeader>
-            <CardContent className="flex-grow p-4">
+            <CardContent className="flex-grow p-4 pb-2">
               <Link href={course.link} passHref target="_blank">
-                <CardTitle className="mb-2 hover:underline transition-shadow line-clamp-1">
+                <CardTitle className="mb-2 hover:underline transition-shadow line-clamp-2">
                   {course.title}
                 </CardTitle>
               </Link>
@@ -94,7 +97,7 @@ export default function CoursesPage() {
                 {course.description}
               </p>
             </CardContent>
-            <CardFooter className="p-4 flex justify-end">
+            <CardFooter className="p-4 pt-2 flex justify-end">
               <Link href={course.link} passHref target="_blank">
                 <Button className="w-full group/arrow">
                   Start Learning
