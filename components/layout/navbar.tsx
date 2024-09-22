@@ -39,21 +39,25 @@ const routeList: RouteProps[] = [
     href: "/learning",
     label: "Learning",
   },
+  // {
+  //   href: "/#projects",
+  //   label: "Projects",
+  // },
+  // {
+  //   href: "/#events",
+  //   label: "Events",
+  // },
+  // {
+  //   href: "/#team",
+  //   label: "Team",
+  // },
+  // {
+  //   href: "/#faq",
+  //   label: "FAQ",
+  // },
   {
-    href: "/#projects",
-    label: "Projects",
-  },
-  {
-    href: "/#events",
-    label: "Events",
-  },
-  {
-    href: "/#team",
-    label: "Team",
-  },
-  {
-    href: "/#faq",
-    label: "FAQ",
+    href: "/#community",
+    label: "Community",
   },
 ];
 

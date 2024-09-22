@@ -1,14 +1,17 @@
-// import { BenefitsSection } from "@/components/layout/sections/benefits";
-// import { CommunitySection } from "@/components/layout/sections/community";
+import { CommunitySection } from "@/components/layout/sections/community";
 // import { ContactSection } from "@/components/layout/sections/contact";
-// import { FAQSection } from "@/components/layout/sections/faq";
+import { FAQSection } from "@/components/layout/sections/faq";
 // import { FooterSection } from "@/components/layout/sections/footer";
 import { HeroSection } from "@/components/layout/sections/hero";
 import CoursesPage from "./learning/page";
 // import { PricingSection } from "@/components/layout/sections/pricing";
 // import { ServicesSection } from "@/components/layout/sections/services";
 import { SponsorsSection } from "@/components/layout/sections/sponsors";
-// import { TeamSection } from "@/components/layout/sections/team";
+import { TeamSection } from "@/components/layout/sections/team";
+import { CourseSection } from "@/components/layout/sections/courses";
+import { BenefitsSection } from "@/components/layout/sections/benefits";
+import Facts from "@/components/layout/sections/facts";
+import MembershipSection from "@/components/layout/sections/membership";
 // import { TestimonialSection } from "@/components/layout/sections/testimonial";
 
 export const metadata = {
@@ -21,16 +24,18 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <CoursesPage /> */}
-      {/* <SponsorsSection /> */}
+      <SponsorsSection />
+      <BenefitsSection />
+      <Facts />
+      <MembershipSection />
+      <CourseSection />
+      {/* <TeamSection /> */}
+      <CommunitySection />
+      <FAQSection />
     </>
   );
 }
-// <BenefitsSection />
 // <ServicesSection />
 // <TestimonialSection />
-// <TeamSection />
-// <CommunitySection />
 // <ContactSection />
-// <FAQSection />
 // <FooterSection />
