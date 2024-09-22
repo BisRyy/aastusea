@@ -58,7 +58,7 @@ export const SponsorsSection = () => {
                 name={icon as keyof typeof icons}
                 size={32}
                 color={theme === "dark" ? "white" : "black"}
-                className="mr-2"
+                 className="mr-2"
               />
               {name}
             </div>
