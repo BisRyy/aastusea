@@ -1,7 +1,6 @@
-import Link from "next/link";
-import { headers } from "next/headers";
 import { permanentRedirect } from "next/navigation";
 import retry from "p-retry";
+import NotFound from "@/app/not-found";
 
 export const dynamic = "force-dynamic";
 
@@ -48,7 +47,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     permanentRedirect(data.redirect);
   }
 
-  permanentRedirect("/");
+  // not found page permanentRedirect("/");
+  return <NotFound />;
 };
 
 export default Page;

@@ -5,6 +5,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 import type { Viewport, Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
@@ -119,7 +120,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en">
         <body
           className={cn(
