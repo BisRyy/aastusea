@@ -8,7 +8,7 @@ export const ToggleTheme = () => {
     <Button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       size="sm"
-      variant="ghost"
+      variant="secondary"
       className="w-full justify-start"
     >
       <div className="flex gap-2 dark:hidden">

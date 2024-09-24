@@ -17,7 +17,7 @@ export default function Page() {
       !isNaN(parseInt(lastStep, 10)) &&
       parseInt(lastStep, 0) < 4
     ) {
-      router.push(`/register?step=${lastStep}`);
+      router.push(`/welcome?step=${lastStep}`);
     }
   }, [router]);
 

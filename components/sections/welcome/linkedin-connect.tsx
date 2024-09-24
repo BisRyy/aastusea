@@ -44,7 +44,7 @@ export function LinkedInConnect({
 
   return (
     <motion.div
-      className="z-10"
+      className="z-10 p-5 py-20"
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, type: "spring" }}
     >
@@ -61,12 +61,17 @@ export function LinkedInConnect({
         className="mx-5 flex flex-col items-center space-y-10 text-center sm:mx-auto"
       >
         <motion.h1
-          className="font-display text-2xl font-bold text-foreground transition-colors md:text-3xl flex items-center gap-2"
+          className="font-display text-xl font-bold text-foreground transition-colors sm:text-2xl md:text-3xl flex items-center gap-3 flex-col sm:flex-row"
           variants={STAGGER_CHILD_VARIANTS}
         >
-          Add AASTUSEA to Your <LinkedInIcon className="w-5 h-5" />
-          <span className="font-bold tracking-tighter">LinkedIn</span>{" "}
-          Experience
+          Add AASTUSEA to Your
+          <br />
+          <Image
+            src="/logos/LI-Logo.png"
+            alt="LinkedIn"
+            width={150}
+            height={150}
+          />
         </motion.h1>
         <motion.p
           className="max-w-md text-accent-foreground/80 transition-colors sm:text-lg"
@@ -100,7 +105,7 @@ export function LinkedInConnect({
                 },
               }}
             >
-              <span className="font-bold text-primary mr-2">{index + 1}.</span>
+              <span className="font-bold mr-2">{index + 1}.</span>
               <span>{item}</span>
             </motion.li>
           ))}
@@ -112,21 +117,13 @@ export function LinkedInConnect({
             }`}
             onClick={handleFollow}
           >
-            {isFollowed
-              ? "Followed AASTUSEA"
-              : isFollowLoading
-              ? "Following..."
-              : "Follow AASTUSEA on LinkedIn"}
+            {isFollowLoading ? "Redirecting..." : "Follow AASTUSEA"}
           </Button>
           <Button
             className={`w-full ${isAdded || isAddLoading ? "opacity-50" : ""}`}
             onClick={handleAddExperience}
           >
-            {isAdded
-              ? "Opened LinkedIn"
-              : isAddLoading
-              ? "Opening LinkedIn..."
-              : "Open LinkedIn to Add Experience"}
+            {isAddLoading ? "Opening LinkedIn..." : "Add Experience"}
           </Button>
           {isFollowed && isAdded && (
             <Button className="w-full" onClick={() => next()}>
@@ -134,13 +131,13 @@ export function LinkedInConnect({
             </Button>
           )}
         </div>
-        <Button
+        {/* <Button
           variant="ghost"
           className="text-sm text-muted-foreground hover:text-foreground"
           onClick={() => next()}
         >
           Skip
-        </Button>
+        </Button> */}
       </motion.div>
     </motion.div>
   );

@@ -59,7 +59,7 @@ export default function RegistrationPage() {
   const CurrentStepComponent = steps[currentStep]?.component;
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-16">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <BackgroundGradient />
       {CurrentStepComponent && (
         <CurrentStepComponent

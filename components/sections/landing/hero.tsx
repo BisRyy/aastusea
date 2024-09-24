@@ -20,9 +20,16 @@ export const HeroSection = () => {
         <div className="text-center space-y-8">
           <Badge variant="outline" className="text-sm py-2">
             <span className="mr-2 text-primary">
-              <Badge>News</Badge>
+              <Badge>New</Badge>
             </span>
-            <span> Members registration has will started! </span>
+            <span>
+              {" "}
+              Members registration will be closed on{" "}
+              <span className="font-extrabold underline">
+                September 30, 2024
+              </span>
+              !{" "}
+            </span>
           </Badge>
 
           <div className="max-w-sm px-4 sm:px-10 md:max-w-screen-md text-wrap lg:max-w-screen-md mx-auto text-center text-3xl sm:text-4xl md:text-6xl font-bold">

@@ -97,7 +97,12 @@ export const Navbar = () => {
         </span>
       </Link>
       {/* <!-- Mobile --> */}
-      <div className="flex items-center lg:hidden">
+      <div className="flex items-center lg:hidden gap-x-2">
+        <div className=" lg:hidden">
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Menu
@@ -145,23 +150,13 @@ export const Navbar = () => {
             </div>
 
             <Separator className="mb-2" />
-            <SheetFooter className="flex justify-start items-start">
+            <SheetFooter className="grid grid-cols-2">
               <ToggleTheme />
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-              <SignedOut>
-                <Button
-                  asChild
-                  size="sm"
-                  variant="default"
-                  aria-label="Apply Now"
-                >
-                  <Link aria-label="Dashboard" href="/dashboard">
-                    Dashboard
-                  </Link>
-                </Button>
-              </SignedOut>
+              <div className="flex justify-end">
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
+              </div>
             </SheetFooter>
           </SheetContent>
         </Sheet>

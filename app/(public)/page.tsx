@@ -12,6 +12,7 @@ import { CourseSection } from "@/components/sections/landing/courses";
 import { BenefitsSection } from "@/components/sections/landing/benefits";
 import Facts from "@/components/sections/landing/facts";
 import MembershipSection from "@/components/sections/landing/membership";
+import FooterSection from "@/components/sections/landing/footer";
 // import { TestimonialSection } from "@/components/layout/sections/testimonial";
 
 export const metadata = {
@@ -32,6 +33,7 @@ export default function Home() {
       {/* <TeamSection /> */}
       <CommunitySection />
       <FAQSection />
+      <FooterSection />
     </>
   );
 }
