@@ -21,31 +21,31 @@ const FAQList: FAQProps[] = [
   {
     question: "How can I join the AASTU Software Engineers Association?",
     answer:
-      "You can join the SEA by filling out the membership form on the association&apos;s website. Membership fees vary depending on your status (student, professional, or corporate).",
+      "You can join the SEA by filling out the membership form on the association's website.",
     value: "item-2",
   },
   {
     question: "Who can join the Software Engineers Association?",
     answer:
-      "Our association is open to all students currently enrolled at AASTU who have an interest in software engineers. We also welcome alumni who wish to stay connected and contribute to the community.",
+      "Our association is open to everyone who have an interest in software engineering and Technology. Even though we mainly focus on students as AASTU, we also welcome alumni who wish to stay connected and contribute to the community.",
     value: "item-3",
   },
   {
     question: "Can I get involved in organizing events?",
     answer:
-      "Absolutely! We encourage our members to take an active role in the association. If you are interested in helping to organize events or have ideas for new initiatives, please reach out to us. We have committees and volunteer opportunities where you can contribute your skills and gain leadership experience.",
+      "Absolutely! We encourage our members to take an active role in the association. If you are interested in helping to organize events or have ideas for new initiatives, please reach out to us. We have core teams and volunteer opportunities where you can contribute your skills and gain leadership experience.",
     value: "item-4",
   },
   {
     question: "How can I stay updated on events and activities?",
     answer:
-      "We regularly post updates on our website, social media platforms, and in our newsletter. Make sure to follow us on social media and sign up for our newsletter to stay informed about upcoming events and activities.",
+      "We regularly post updates on our website and social media platforms. Make sure to follow us on social media to stay informed about upcoming events and activities.",
     value: "item-5",
   },
   {
     question: "How can I get involved in the Software Engineers Association?",
     answer:
-      "You can get involved in the Software Engineers Association by attending our events, joining our committees, and volunteering for our initiatives. You can also follow us on social media and sign up for our newsletter to stay informed about upcoming events and activities.",
+      "You can get involved in the Software Engineers Association by attending our events, joining our committees, and volunteering for our initiatives. You can also follow us on social media to stay informed about upcoming events and activities.",
     value: "item-6",
   },
 ];

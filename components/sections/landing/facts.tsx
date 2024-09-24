@@ -109,7 +109,7 @@ const FunFact = () => {
             viewport={{ once: true }}
             className="animate-fade-down mx-auto mb-[50px] px-4 text-center md:w-4/5 md:px-0 lg:mb-[70px] lg:w-2/3 xl:w-1/2"
           >
-            <h2 className="mb-4 text-3xl font-bold text-black dark:text-white xl:text-[40px]">
+            <h2 className="mb-4 text-3xl font-bold xl:text-[40px]">
               Trusted by AASTU Software Engineering Department.
             </h2>
             <p className="mx-auto lg:w-11/12">
@@ -141,8 +141,8 @@ const FunFact = () => {
               viewport={{ once: true }}
               className="animate-fade-down text-center"
             >
-              <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-[40px]">
-                <CounterAnimation end={1000} duration={50000} />
+              <h3 className="mb-2.5 text-3xl font-bold xl:text-[40px]">
+                <CounterAnimation end={1000} duration={50000} />+
               </h3>
               <p className="text-lg lg:text-xl">Students Registered</p>
             </motion.div>
@@ -164,7 +164,7 @@ const FunFact = () => {
               viewport={{ once: true }}
               className="animate-fade-down text-center"
             >
-              <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-[40px]">
+              <h3 className="mb-2.5 text-3xl font-bold xl:text-[40px]">
                 <CounterAnimation end={3} duration={2000} />+
               </h3>
               <p className="text-lg lg:text-xl">Events Planned</p>
@@ -187,7 +187,7 @@ const FunFact = () => {
               viewport={{ once: true }}
               className="animate-fade-down text-center"
             >
-              <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-[40px]">
+              <h3 className="mb-2.5 text-3xl font-bold xl:text-[40px]">
                 <CounterAnimation end={2} duration={2000} />
               </h3>
               <p className="text-lg lg:text-xl">Projects Started</p>

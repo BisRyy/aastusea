@@ -67,33 +67,33 @@ const sponsors: sponsorsProps[] = [
 
 export const SponsorsSection = () => {
   return (
-    <section id="sponsors" className="container mx-auto p-12">
+    <section id="sponsors" className="container min-w-screen mx-auto lg:p-12">
       <h1 className="text-xl md:text-3xl font-bold mb-8 text-center">
         Our Partners
       </h1>
 
-      <div className="mx-auto">
+      <div className="md:mx-auto w-full">
         <Marquee
-          className="gap-[3rem]"
+          className="gap-[3rem] md:gap-[6rem]"
           fade
-          innerClassName="gap-[3rem]"
+          innerClassName="gap-[3rem] md:gap-[6rem]"
           pauseOnHover
         >
           {sponsors.map((brand) => (
             <div
               key={brand.id}
-              className="flex items-center justify-center w-[180px] h-[120px]"
+              className="flex items-center justify-center w-[120px] md:w-[180px] h-[80px] md:h-[100px]"
             >
               <Link
                 href={brand.href}
                 className="relative w-full h-full cursor-pointer"
               >
                 <Image
-                  className="opacity-65 transition-all duration-300 hover:opacity-100 dark:hidden"
+                  className="opacity-75 transition-all duration-300 hover:opacity-100 dark:hidden"
                   src={brand.image}
                   alt={brand.name}
                   fill
-                  sizes="180px"
+                  sizes="(max-width: 768px) 120px, 180px"
                   style={{ objectFit: "contain" }}
                   title={brand.name}
                 />
@@ -102,7 +102,7 @@ export const SponsorsSection = () => {
                   src={brand.imageLight}
                   alt={brand.name}
                   fill
-                  sizes="180px"
+                  sizes="(max-width: 768px) 120px, 180px"
                   style={{ objectFit: "contain" }}
                   title={brand.name}
                 />

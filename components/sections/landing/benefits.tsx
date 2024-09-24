@@ -16,31 +16,31 @@ const benefitList: BenefitsProps[] = [
       "Connect with industry professionals and fellow enthusiasts to expand your horizons.",
   },
   {
-    icon: "ChartLine",
+    icon: "Sparkle",
     title: "Skill Workshops",
     description:
       "Sharpen your abilities with tailored workshops designed to enhance your expertise.",
   },
   {
-    icon: "Wallet",
+    icon: "Folder",
     title: "Project Showcase",
     description:
       "Present your projects and gain valuable feedback while exploring collaboration opportunities.",
   },
   {
-    icon: "Sparkle",
+    icon: "Armchair",
     title: "Workspace Access",
     description:
       "Collaborate in our dedicated workspace, fostering creativity and teamwork.",
   },
   {
-    icon: "Sparkle",
+    icon: "Calendar",
     title: "Hackathons & Events",
     description:
       "Immerse yourself in exhilarating hackathons and events, fueling your passion for innovation.",
   },
   {
-    icon: "Sparkle",
+    icon: "ChartLine",
     title: "Mentorship Program",
     description:
       "Access guidance and support from experienced mentors, accelerating your growth in the field.",

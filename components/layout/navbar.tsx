@@ -86,7 +86,7 @@ export const Navbar = () => {
       <Link href="/" className="font-bold text-lg flex items-center">
         <Image
           src="/logo-light.png"
-          alt="RadixLogo"
+          alt="AASTUSEA"
           width={600}
           height={600}
           className="object-cover bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
@@ -116,7 +116,7 @@ export const Navbar = () => {
                   <Link href="/" className="flex items-center">
                     <Image
                       src="/logo-light.png"
-                      alt="RadixLogo"
+                      alt="AASTUSEA"
                       width={600}
                       height={600}
                       className="object-cover bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
@@ -144,10 +144,24 @@ export const Navbar = () => {
               </div>
             </div>
 
-            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-              <Separator className="mb-2" />
-
+            <Separator className="mb-2" />
+            <SheetFooter className="flex justify-start items-start">
               <ToggleTheme />
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                <Button
+                  asChild
+                  size="sm"
+                  variant="default"
+                  aria-label="Apply Now"
+                >
+                  <Link aria-label="Apply Now" href="/dashboard">
+                    Dashboard
+                  </Link>
+                </Button>
+              </SignedOut>
             </SheetFooter>
           </SheetContent>
         </Sheet>
@@ -201,24 +215,29 @@ export const Navbar = () => {
 
       <div className="hidden lg:flex gap-x-2">
         <ToggleTheme />
-        {/* <SignedOut>
-          <SignInButton />
-        </SignedOut> */}
         <SignedIn>
           <UserButton />
+          <Button
+            asChild
+            size="sm"
+            className=""
+            variant="default"
+            aria-label="Apply Now"
+          >
+            <Link aria-label="Apply Now" href="/dashboard">
+              Dashboard
+            </Link>
+          </Button>
         </SignedIn>
 
-        <Button
-          // asChild
-          size="sm"
-          disabled
-          variant="default"
-          aria-label="Apply Now"
-        >
-          <Link aria-label="Apply Now" href="/apply" target="_blank">
-            Apply Now
-          </Link>
-        </Button>
+        <SignedOut>
+          <Button asChild size="sm" variant="default" aria-label="Apply Now">
+            <Link aria-label="Apply Now" href="/dashboard">
+              Apply Now
+            </Link>
+          </Button>
+          {/* <SignInButton /> */}
+        </SignedOut>
       </div>
     </header>
   );

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export type FeatureTab = {
   id: string;
@@ -11,42 +11,55 @@ export type FeatureTab = {
   image: string;
   imageDark: string;
 };
-
 const MembershipData: FeatureTab[] = [
   {
     id: "tabOne",
-    title: "Fill out the Membership Form",
+    title: "Register on Our Website",
     desc1:
-      "Complete the membership form with your details to officially join our association.",
+      "Create an account on our website to start your journey with our association.",
     desc2:
-      "This form helps us keep track of our members and ensures you receive all the benefits of membership.",
-    image: "/courses/1.png",
-    imageDark: "/courses/2.jpg",
+      "This initial step allows you to access our member-only resources and stay updated with our latest news and events.",
+    image: "/membership/register.png",
+    imageDark: "/membership/register-dark.png",
   },
   {
     id: "tabTwo",
-    title: "Attend the Orientation Session",
+    title: "Fill out the Membership Form",
     desc1:
-      "Attend our orientation session where we provide an overview of our association, its goals, and how you can get involved.",
+      "Complete the detailed membership form to provide us with more information about your interests and skills.",
     desc2:
-      "This session is your opportunity to learn more about us and ask any questions you may have.",
-    image: "/courses/1.png",
-    imageDark: "/courses/2.jpg",
+      "This form helps us tailor our services to your needs and match you with relevant opportunities within our community.",
+    image: "/membership/membership-form.png",
+    imageDark: "/membership/membership-form-dark.png",
   },
   {
     id: "tabThree",
-    title: "Receive Your Membership Confirmation",
+    title: "Join Our Notion Workspace",
     desc1:
-      "Once you've completed the membership form and attended the orientation session, you'll receive a membership confirmation email.",
+      "After your membership is confirmed, you'll receive an invitation to join our Notion workspace.",
     desc2:
-      "This email will officially welcome you to our association and provide you with further details on how to access our resources and events.",
-    image: "/courses/1.png",
-    imageDark: "/courses/2.jpg",
+      "This collaborative platform is where we share resources, organize projects, and facilitate communication among our members.",
+    image: "/membership/notion-hq.png",
+    imageDark: "/membership/notion-space.png",
   },
 ];
 
 const Membership = () => {
   const [currentTab, setCurrentTab] = useState("tabOne");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTab((prevTab) => {
+        const currentIndex = MembershipData.findIndex(
+          (tab) => tab.id === prevTab
+        );
+        const nextIndex = (currentIndex + 1) % MembershipData.length;
+        return MembershipData[nextIndex].id;
+      });
+    }, 4000); // Changed from 2000 to 4000 for a slower transition
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative py-20 lg:py-24">
@@ -112,14 +125,22 @@ const Membership = () => {
           viewport={{ once: true }}
           className="mx-auto max-w-5xl"
         >
-          {MembershipData.map((feature) => (
-            <div
-              className={feature.id === currentTab ? "block" : "hidden"}
-              key={feature.id}
-            >
-              <MembershipItem featureTab={feature} />
-            </div>
-          ))}
+          <AnimatePresence mode="wait">
+            {MembershipData.map(
+              (feature) =>
+                feature.id === currentTab && (
+                  <motion.div
+                    key={feature.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }} // Increased from 0.3 to 0.5 for smoother transition
+                  >
+                    <MembershipItem featureTab={feature} />
+                  </motion.div>
+                )
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
