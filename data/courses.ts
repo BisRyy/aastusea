@@ -7,6 +7,8 @@ interface Course {
   datePublished: string;
   dateModified: string;
   postedBy: string;
+  level: string;
+  locked?: boolean;
 }
 
 export const AllCourses: Course[] = [
@@ -20,6 +22,8 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
+    locked: true,
   },
   {
     title: "Get started with Python",
@@ -31,6 +35,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Get started with C#",
@@ -42,6 +47,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Azure Fundamentals",
@@ -53,6 +59,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Azure AI Fundamentals",
@@ -64,6 +71,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Azure Data Fundamentals",
@@ -75,6 +83,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Web Development for Beginners",
@@ -86,6 +95,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Creating your first web apps with React",
@@ -97,6 +107,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "intermediate",
   },
   {
     title: "Build JavaScript applications with Node.js",
@@ -108,6 +119,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "intermediate",
   },
   {
     title: "Build web apps with Blazor ",
@@ -119,6 +131,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "intermediate",
   },
   {
     title: "Build applications using TypeScript",
@@ -130,6 +143,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "intermediate",
   },
   {
     title: "Take your first steps with Vue.js",
@@ -141,6 +155,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Get started with Java on Azure",
@@ -152,6 +167,8 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "intermediate",
+    locked: true,
   },
   {
     title: "Microsoft Security, Compliance, and Identity Fundamentals",
@@ -163,6 +180,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
   {
     title: "Copilot for Microsoft 365",
@@ -174,6 +192,7 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "intermediate",
   },
   {
     title: "Microsoft Power Platform Fundamentals",
@@ -184,5 +203,6 @@ export const AllCourses: Course[] = [
     datePublished: "2024-09-11",
     dateModified: "2024-09-11",
     postedBy: "MLSA",
+    level: "beginner",
   },
 ];

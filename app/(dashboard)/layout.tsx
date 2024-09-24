@@ -2,7 +2,7 @@
 
 import DashboardNavbar from "@/components/layout/dashboard-navbar";
 import Sidebar from "@/components/layout/sidebar";
-import { Button } from "@/components/ui/moving-border-button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Script from "next/script";
 import { ReactNode, useState } from "react";
@@ -27,6 +27,24 @@ export default function DashboardLayout({ children }: Props) {
           {children}
         </div>
       </div>
+      <Button
+        data-tally-open="wQYlQA"
+        data-tally-emoji-text="👋"
+        data-tally-emoji-animation="wave"
+        data-tally-auto-close="3000"
+        className="fixed bottom-4 right-4"
+      >
+        🐛
+      </Button>
+
+      <Script
+        id="tally-js"
+        src="https://tally.so/widgets/embed.js"
+        onLoad={() => {
+          // @ts-ignore
+          Tally?.loadEmbeds();
+        }}
+      />
     </div>
   );
 }

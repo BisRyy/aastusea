@@ -10,7 +10,7 @@ export default function FooterSection() {
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
           <a
-            href={"https://bisry.me"}
+            href={"https://linkedin.com/in/bisry"}
             target="_blank"
             rel="noreferrer"
             className="font-bold underline underline-offset-4"

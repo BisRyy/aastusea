@@ -217,9 +217,9 @@ export const Navbar = () => {
             size="sm"
             className=""
             variant="default"
-            aria-label="Apply Now"
+            aria-label="Dashboard"
           >
-            <Link aria-label="Apply Now" href="/welcome">
+            <Link aria-label="Dashboard" href="/dashboard">
               Dashboard
             </Link>
           </Button>
