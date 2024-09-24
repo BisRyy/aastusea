@@ -157,7 +157,7 @@ export const Navbar = () => {
                   variant="default"
                   aria-label="Apply Now"
                 >
-                  <Link aria-label="Apply Now" href="/dashboard">
+                  <Link aria-label="Dashboard" href="/dashboard">
                     Dashboard
                   </Link>
                 </Button>
@@ -224,7 +224,7 @@ export const Navbar = () => {
             variant="default"
             aria-label="Apply Now"
           >
-            <Link aria-label="Apply Now" href="/dashboard">
+            <Link aria-label="Apply Now" href="/welcome">
               Dashboard
             </Link>
           </Button>
@@ -232,7 +232,7 @@ export const Navbar = () => {
 
         <SignedOut>
           <Button asChild size="sm" variant="default" aria-label="Apply Now">
-            <Link aria-label="Apply Now" href="/dashboard">
+            <Link aria-label="Apply Now" href="/welcome">
               Apply Now
             </Link>
           </Button>

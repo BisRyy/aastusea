@@ -51,7 +51,7 @@ export const HeroSection = () => {
               borderRadius="2rem"
               className="font-bold group/arrow px-4 py-2 bg-primary"
               as={Link}
-              href="/dashboard"
+              href="/welcome"
             >
               Apply Now
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
