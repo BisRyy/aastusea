@@ -58,9 +58,9 @@ export const HeroSection = () => {
               borderRadius="2rem"
               className="font-bold group/arrow px-4 py-2 bg-primary"
               as={Link}
-              href="/welcome"
+              href="/dashboard"
             >
-              Apply Now
+              Sign In
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </MovingBorderButton>
 
@@ -83,7 +83,11 @@ export const HeroSection = () => {
             width={1200}
             height={1200}
             className="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-secondary  border-t-primary/30"
-            src={theme === "light" ? "/membership/dashboard-light.png" : "/membership/dashboard-dark.png"}
+            src={
+              theme === "light"
+                ? "/membership/dashboard-light.png"
+                : "/membership/dashboard-dark.png"
+            }
             alt="dashboard"
           />
 
