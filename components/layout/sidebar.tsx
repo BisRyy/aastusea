@@ -132,12 +132,12 @@ const Sidebar = ({
 
 export default Sidebar;
 
-export const MembershipSign = ({ size = 15 }) => {
+export const MembershipSign = ({ size = 15, className = "" }) => {
   const height = size * 1.73; // Maintain aspect ratio
 
   return (
     <svg
-      className="ml-2"
+      className={`ml-2 ${className}`}
       width={size}
       height={height}
       viewBox="0 0 15 26"
