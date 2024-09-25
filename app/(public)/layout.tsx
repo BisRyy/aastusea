@@ -8,7 +8,10 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
+    <div
+      className="dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
+      suppressHydrationWarning={true}
+    >
       <Navbar />
       {children}
     </div>
