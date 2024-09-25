@@ -63,6 +63,23 @@ const Membership = () => {
 
   return (
     <section className="relative py-20 lg:py-24">
+      <div className="max-w-3xl mx-auto text-center mb-12">
+        <h2 className="text-lg text-primary mb-2 tracking-wider">
+          Membership Process
+        </h2>
+
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Join Our Community
+        </h2>
+        <p className="text-xl text-muted-foreground mb-8 text-wrap p-3">
+          Become a part of our thriving software engineering community by
+          following these simple steps to gain access to exclusive resources and
+          opportunities.{" "}
+          <span className="text-primary font-bold">
+            *Registration is Open to Everyone.
+          </span>
+        </p>
+      </div>
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="absolute -top-16 -z-10 mx-auto h-[350px] w-[90%]">
           <Image

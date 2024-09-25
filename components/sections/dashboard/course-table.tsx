@@ -18,6 +18,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { MembershipSign } from "@/components/layout/sidebar";
 
 interface Course {
   image: string;
@@ -25,15 +26,19 @@ interface Course {
   link: string;
   company: string;
   level: string;
-  locked?: boolean;
-  requiredMembership?: string;
+  locked: boolean;
+  requiredMembership: number;
 }
 
 interface CourseTableProps {
   courses: Course[];
+  userMembershipLevel?: number;
 }
 
-const CourseTable: React.FC<CourseTableProps> = ({ courses }) => {
+const CourseTable: React.FC<CourseTableProps> = ({
+  courses,
+  userMembershipLevel = 1,
+}) => {
   const [filteredCourses, setFilteredCourses] = useState<Course[]>(courses);
   const [searchTerm, setSearchTerm] = useState("");
   const [levelFilter, setLevelFilter] = useState("");
@@ -104,7 +109,7 @@ const CourseTable: React.FC<CourseTableProps> = ({ courses }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredCourses.map((course, index) => (
           <Card key={index} className="flex flex-col h-full relative">
-            {Number(course?.requiredMembership) > 1 && (
+            {course.locked && (
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -112,8 +117,38 @@ const CourseTable: React.FC<CourseTableProps> = ({ courses }) => {
                       <Lock size={16} />
                     </div>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Required Membership: {course.requiredMembership}</p>
+                  <TooltipContent
+                    side="top"
+                    className="text-xs border border-border flex gap-2 bg-primary/80"
+                    sideOffset={10}
+                    align="start"
+                    alignOffset={10}
+                  >
+                    <p>This course is locked.</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+            {course.requiredMembership > userMembershipLevel && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <MembershipSign
+                      size={10}
+                      className="hover:cursor-pointer absolute top-2 right-2 z-10 p-1 rounded-full"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="top"
+                    className="text-xs border border-border flex gap-2 bg-primary/80"
+                    sideOffset={10}
+                    align="start"
+                    alignOffset={10}
+                  >
+                    <MembershipSign size={10} />
+                    <p>
+                      Membership Level {course.requiredMembership} is required.
+                    </p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -126,13 +161,17 @@ const CourseTable: React.FC<CourseTableProps> = ({ courses }) => {
                   fill
                   style={{ objectFit: "cover" }}
                   className={`rounded-t-lg ${
-                    Number(course?.requiredMembership) > 1 ? "opacity-50" : ""
+                    course.locked ||
+                    course.requiredMembership > userMembershipLevel
+                      ? "opacity-50"
+                      : ""
                   }`}
                 />
               </div>
             </CardHeader>
             <CardContent className="flex-grow p-4">
-              {Number(course?.requiredMembership) > 1 ? (
+              {course.locked ||
+              course.requiredMembership > userMembershipLevel ? (
                 <CardTitle
                   className={`mb-2 text-lg font-medium line-clamp-2 text-gray-500`}
                 >
@@ -149,7 +188,8 @@ const CourseTable: React.FC<CourseTableProps> = ({ courses }) => {
               )}
               <div
                 className={`text-sm flex justify-between ${
-                  course.locked
+                  course.locked ||
+                  course.requiredMembership > userMembershipLevel
                     ? "text-gray-400"
                     : "text-gray-600 dark:text-gray-300"
                 }`}

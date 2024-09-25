@@ -8,7 +8,8 @@ interface Course {
   dateModified: string;
   postedBy: string;
   level: string;
-  locked?: boolean;
+  locked: boolean;
+  requiredMembership: number;
 }
 
 export const AllCourses: Course[] = [
@@ -24,6 +25,7 @@ export const AllCourses: Course[] = [
     postedBy: "MLSA",
     level: "beginner",
     locked: true,
+    requiredMembership: 1,
   },
   {
     title: "Get started with Python",
@@ -36,6 +38,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Get started with C#",
@@ -48,6 +52,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Azure Fundamentals",
@@ -60,6 +66,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Azure AI Fundamentals",
@@ -72,6 +80,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Azure Data Fundamentals",
@@ -84,6 +94,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: true,
+    requiredMembership: 0,
   },
   {
     title: "Web Development for Beginners",
@@ -96,6 +108,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Creating your first web apps with React",
@@ -108,6 +122,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "intermediate",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Build JavaScript applications with Node.js",
@@ -120,6 +136,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "intermediate",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Build web apps with Blazor ",
@@ -132,6 +150,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "intermediate",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Build applications using TypeScript",
@@ -144,6 +164,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "intermediate",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Take your first steps with Vue.js",
@@ -156,6 +178,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Get started with Java on Azure",
@@ -168,7 +192,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "intermediate",
-    locked: true,
+    locked: false,
+    requiredMembership: 10,
   },
   {
     title: "Microsoft Security, Compliance, and Identity Fundamentals",
@@ -181,6 +206,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Copilot for Microsoft 365",
@@ -193,6 +220,8 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "intermediate",
+    locked: false,
+    requiredMembership: 0,
   },
   {
     title: "Microsoft Power Platform Fundamentals",
@@ -204,5 +233,7 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
+    locked: false,
+    requiredMembership: 10,
   },
 ];
