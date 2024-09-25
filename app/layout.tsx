@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,6 +38,32 @@ export const metadata: Metadata = {
     siteName: "AASTUSEA | AASTU Software Engineers Association",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/membership/landing-dark.png",
+        width: 1200,
+        height: 630,
+        alt: "AASTU Software Engineers Association",
+      },
+      {
+        url: "/membership/landing-light.png",
+        width: 1200,
+        height: 630,
+        alt: "AASTU Software Engineers Association",
+      },
+      {
+        url: "/membership/features-dark.png",
+        width: 1200,
+        height: 630,
+        alt: "AASTU Software Engineers Association",
+      },
+      {
+        url: "/membership/features-light.png",
+        width: 1200,
+        height: 630,
+        alt: "AASTU Software Engineers Association",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -152,6 +179,8 @@ export default function RootLayout({
           </ThemeProvider>
           <Analytics />
           <SpeedInsights />
+          <GoogleAnalytics gaId="G-GBH5LWYQ1D" />
+          <GoogleTagManager gtmId="GTM-W7TXLB47" />
         </body>
       </html>
     </ClerkProvider>

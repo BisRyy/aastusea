@@ -9,18 +9,26 @@ import { LoaderIcon } from "lucide-react";
 import Greeting from "../../../components/sections/dashboard/greeting";
 import { Button } from "@/components/ui/button";
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 export default async function Page() {
   return (
-    <div className="flex  h-full gap-2 m-4">
+    <div className="flex h-full gap-2 m-4">
       <Redirect />
       <div className="flex-grow">
         <div className="flex items-start justify-between mx-4 my-4">
           <Greeting />
           <div className="flex items-center gap-2">
-            <Button variant="ghost">
-              <QuestionMarkCircledIcon className="w-4 h-4" />
-            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost">
+                    <QuestionMarkCircledIcon className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent className="text-xs">This website is in active development</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
         <CourseTable courses={AllCourses} />
