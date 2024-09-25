@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
           <div className="space-y-4 md:space-y-2 md:space-x-4 flex flex-col items-center justify-center">
             {/* <Button className="w-4/6 md:w-1/4 font-bold group/arrow">
-              Apply Now
+              Get Started
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </Button> */}
 
@@ -58,9 +58,9 @@ export const HeroSection = () => {
               borderRadius="2rem"
               className="font-bold group/arrow px-4 py-2 bg-primary"
               as={Link}
-              href="/dashboard"
+              href="/welcome"
             >
-              Sign In
+              Apply Now
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </MovingBorderButton>
 
@@ -72,7 +72,7 @@ export const HeroSection = () => {
             </Button>
           </div>
 
-          <div className="container absolute top-28 left-1/2 transform -translate-x-1/2 w-[90%] mx-auto h-24 lg:h-80 bg-primary/20 rounded-full blur-3xl"></div>
+          <div className="container -z-50 absolute top-28 left-1/2 transform -translate-x-1/2 w-[90%] mx-auto h-24 lg:h-80 bg-primary/20 rounded-full blur-3xl"></div>
 
           {/* <div className="absolute bottom-0 left-0 w-full h-20 md:h-28 bg-gradient-to-b from-background/0 via-background/50 to-background rounded-lg"></div> */}
         </div>
