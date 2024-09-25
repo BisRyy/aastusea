@@ -135,45 +135,47 @@ const Sidebar = ({
           </div>
         </div>
         <nav className="flex-grow">
-          {navItems.map((item) => (
-            <div key={item.name} className="w-full mb-4">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger className="w-full">
-                    <Button
-                      variant={
-                        pathname === item.path
-                          ? "default"
-                          : item.name === "Learn"
-                          ? "ghost"
-                          : "secondary"
-                      }
-                      className="w-full py-6 text-left text-lg flex items-center justify-between"
-                      disabled={item.requiredLevel > 1}
+          {navItems.map((item) => {
+            const isActive = pathname === item.path;
+            const isDisabled = item.requiredLevel > 1;
+
+            return (
+              <div key={item.name} className="w-full mb-4">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="w-full">
+                      <div
+                        className={`w-full py-3 px-4 text-left text-lg font-medium flex items-center justify-between rounded-md transition-colors dark:text-gray-200 ${
+                          isActive
+                            ? "bg-primary text-gray-200"
+                            : "bg-secondary/50 hover:bg-secondary/70 dark:text-gray-200/70 text-gray-800/70"
+                        } cursor-pointer`}
+                      >
+                        {item.name}
+                        <ChevronRight
+                          className={`w-4 h-4 ${isActive ? "block" : "hidden"}`}
+                        />
+                        <Lock
+                          className={`w-4 h-4 ${
+                            isDisabled ? "block" : "hidden"
+                          }`}
+                        />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="top"
+                      className={`text-xs ml-16 border border-border flex gap-2 ${
+                        isDisabled ? "bg-primary/80" : "hidden"
+                      }`}
                     >
-                      {item.name}
-                      {pathname === item.path && (
-                        <ChevronRight className="w-4 h-4" />
-                      )}
-                      {item.requiredLevel > 1 && <Lock className="w-4 h-4" />}
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent
-                    side="top"
-                    className={`text-xs ml-16 border border-border flex gap-2  ${
-                      item.requiredLevel > 1 ? "bg-primary/80" : "hidden"
-                    }`}
-                    sideOffset={10}
-                    align="start"
-                    alignOffset={10}
-                  >
-                    <MembershipSign size={10} />
-                    <p>Membership Level {item.requiredLevel} is required.</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-          ))}
+                      <MembershipSign size={10} />
+                      <p>Membership Level {item.requiredLevel} is required.</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+            );
+          })}
         </nav>
       </div>
     </>

@@ -58,6 +58,18 @@ const CounterAnimation = ({
 };
 
 const FunFact = () => {
+  const [usersCount, setUsersCount] = useState(0);
+
+  const getUsersCount = async () => {
+    const res = await fetch("/api/user/users");
+    const data = await res.json();
+    setUsersCount(data.total_count);
+  };
+
+  useEffect(() => {
+    getUsersCount();
+  }, []);
+
   return (
     <>
       {/* <!-- ===== Funfact Start ===== --> */}
@@ -142,7 +154,7 @@ const FunFact = () => {
               className="animate-fade-down text-center"
             >
               <h3 className="mb-2.5 text-3xl font-bold xl:text-[40px]">
-                <CounterAnimation end={1000} duration={50000} />+
+                <CounterAnimation end={usersCount} duration={5000} />+
               </h3>
               <p className="text-lg lg:text-xl">Students Registered</p>
             </motion.div>

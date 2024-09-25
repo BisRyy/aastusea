@@ -11,14 +11,8 @@ export const ToggleTheme = ({ className }: { className?: string }) => {
       variant="secondary"
       className={className}
     >
-      <div className="flex items-center gap-2">
-        {theme === "dark" ? (
-          <Sun className="size-5" />
-        ) : (
-          <Moon className="size-5" />
-        )}
-      </div>
-      <span className="sr-only">Toggle theme</span>
+      <Moon className="size-5 dark:hidden" />
+      <Sun className="size-5 hidden dark:block" />
     </Button>
   );
 };
