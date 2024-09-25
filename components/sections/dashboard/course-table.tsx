@@ -67,8 +67,8 @@ const CourseTable: React.FC<CourseTableProps> = ({
 
   return (
     <div>
-      <div className="mb-4 flex flex-col md:flex-row gap-4">
-        <div className="relative w-full md:w-1/3">
+      <div className="mb-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="relative col-span-2 md:col-span-1">
           <Input
             placeholder="Search courses..."
             value={searchTerm}
@@ -77,34 +77,32 @@ const CourseTable: React.FC<CourseTableProps> = ({
           />
           <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         </div>
-        <div className="flex flex-row gap-4 w-full md:w-3/5">
-          <Select value={levelFilter} onValueChange={setLevelFilter}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Filter by level" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Levels</SelectItem>
-              {uniqueLevels.map((level) => (
-                <SelectItem key={level} value={level}>
-                  {level.charAt(0).toUpperCase() + level.slice(1)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Select value={companyFilter} onValueChange={setCompanyFilter}>
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Filter by company" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Companies</SelectItem>
-              {uniqueCompanies.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company.charAt(0).toUpperCase() + company.slice(1)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <Select value={levelFilter} onValueChange={setLevelFilter}>
+          <SelectTrigger>
+            <SelectValue placeholder="Filter by level" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Levels</SelectItem>
+            {uniqueLevels.map((level) => (
+              <SelectItem key={level} value={level}>
+                {level.charAt(0).toUpperCase() + level.slice(1)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select value={companyFilter} onValueChange={setCompanyFilter}>
+          <SelectTrigger>
+            <SelectValue placeholder="Filter by company" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Companies</SelectItem>
+            {uniqueCompanies.map((company) => (
+              <SelectItem key={company} value={company}>
+                {company.charAt(0).toUpperCase() + company.slice(1)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredCourses.map((course, index) => (
