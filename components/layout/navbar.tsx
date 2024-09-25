@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Github, Menu } from "lucide-react";
+import { ArrowRight, ChevronsDown, Github, Menu, MenuIcon } from "lucide-react";
 import React from "react";
 import {
   Sheet,
@@ -105,9 +105,10 @@ export const Navbar = () => {
         </div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Menu
+            <MenuIcon
               onClick={() => setIsOpen(!isOpen)}
               className="cursor-pointer lg:hidden"
+              size={32}
             />
           </SheetTrigger>
 
@@ -150,13 +151,48 @@ export const Navbar = () => {
             </div>
 
             <Separator className="mb-2" />
-            <SheetFooter className="grid grid-cols-2">
-              <ToggleTheme />
-              <div className="flex justify-end">
+            <SheetFooter className="flex flex-col gap-2">
+              <div className="flex items-center justify-between gap-2 w-full">
+                <ToggleTheme className="w-full" />
                 <SignedIn>
                   <UserButton />
                 </SignedIn>
               </div>
+              <SignedIn>
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  size="sm"
+                  variant="default"
+                  aria-label="Dashboard"
+                >
+                  <Link
+                    aria-label="Dashboard"
+                    href="/dashboard"
+                    className="flex items-center justify-between"
+                  >
+                    Dashboard
+                    <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </SignedIn>
+              <SignedOut>
+                <Button
+                  asChild
+                  size="sm"
+                  variant="default"
+                  aria-label="Sign In"
+                >
+                  <Link
+                    aria-label="Sign In"
+                    href="/dashboard"
+                    className="flex items-center justify-between"
+                  >
+                    Sign In
+                    <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </SignedOut>
             </SheetFooter>
           </SheetContent>
         </Sheet>
@@ -231,7 +267,6 @@ export const Navbar = () => {
               Sign In
             </Link>
           </Button>
-          {/* <SignInButton /> */}
         </SignedOut>
       </div>
     </header>

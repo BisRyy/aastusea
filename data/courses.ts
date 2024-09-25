@@ -24,7 +24,7 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
-    locked: true,
+    locked: false,
     requiredMembership: 1,
   },
   {
@@ -94,7 +94,7 @@ export const AllCourses: Course[] = [
     dateModified: "2024-09-11",
     postedBy: "MLSA",
     level: "beginner",
-    locked: true,
+    locked: false,
     requiredMembership: 0,
   },
   {
@@ -193,7 +193,7 @@ export const AllCourses: Course[] = [
     postedBy: "MLSA",
     level: "intermediate",
     locked: false,
-    requiredMembership: 10,
+    requiredMembership: 0,
   },
   {
     title: "Microsoft Security, Compliance, and Identity Fundamentals",
@@ -234,6 +234,6 @@ export const AllCourses: Course[] = [
     postedBy: "MLSA",
     level: "beginner",
     locked: false,
-    requiredMembership: 10,
+    requiredMembership: 0,
   },
 ];

@@ -7,6 +7,7 @@ import { NotionConnect } from "@/components/sections/welcome/notion-connect";
 import { UserDetailsForm } from "@/components/sections/welcome/user-details-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
+import { useUser } from "@clerk/nextjs";
 
 const steps: { component: React.ComponentType<any>; props: any }[] = [
   { component: Intro, props: {} },
@@ -20,13 +21,22 @@ export default function RegistrationPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(0);
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  if (!isLoaded || !isSignedIn) {
+    return;
+  }
 
   useEffect(() => {
     const stepParam = searchParams.get("step");
     const lastStep = localStorage.getItem("lastStep");
     const lastStepNumber = parseInt(lastStep || "0", 10);
 
-    if (stepParam) {
+    const isOnboardingCompleted = user.publicMetadata.isOnboardingCompleted;
+
+    if (isOnboardingCompleted) {
+      router.push("/dashboard");
+    } else if (stepParam) {
       const newStep = parseInt(stepParam, 10);
       updateStep(newStep);
     } else if (lastStep && !isNaN(lastStepNumber)) {
@@ -36,7 +46,7 @@ export default function RegistrationPage() {
     if (lastStep === steps.length.toString()) {
       router.push("/dashboard");
     }
-  }, [searchParams, router]);
+  }, []);
 
   const updateStep = (newStep: number) => {
     setCurrentStep(newStep);
@@ -71,6 +81,7 @@ export default function RegistrationPage() {
     </div>
   );
 }
+
 function BackgroundGradient() {
   return (
     <div

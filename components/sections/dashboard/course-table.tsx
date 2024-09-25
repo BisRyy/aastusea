@@ -133,10 +133,13 @@ const CourseTable: React.FC<CourseTableProps> = ({
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <MembershipSign
-                      size={10}
-                      className="hover:cursor-pointer absolute top-2 right-2 z-10 p-1 rounded-full"
-                    />
+                    {/*  */}
+                    <div className="hover:cursor-pointer absolute top-2 right-2 z-10 bg-gray-800 text-white p-1 rounded-full">
+                      <MembershipSign
+                        size={20}
+                        className="hover:cursor-pointer absolute top-2 right-2 z-10 p-1 rounded-full"
+                      />
+                    </div>
                   </TooltipTrigger>
                   <TooltipContent
                     side="top"
