@@ -8,23 +8,23 @@ export default function Redirect() {
   const router = useRouter();
   const { isLoaded, isSignedIn, user } = useUser();
 
-  if (!isLoaded || !isSignedIn) {
-    return null;
-  }
-
-  const isOnboardingCompleted = user.publicMetadata.isOnboardingCompleted;
-
   useEffect(() => {
+    if (!isLoaded || !isSignedIn) {
+      return;
+    }
+
+    const isOnboardingCompleted = user.publicMetadata.isOnboardingCompleted;
     const lastStep = window.localStorage.getItem("lastStep");
+
     if (
       lastStep &&
       !isNaN(parseInt(lastStep, 10)) &&
-      parseInt(lastStep, 0) < 4 &&
+      parseInt(lastStep, 10) < 4 &&
       !isOnboardingCompleted
     ) {
       router.push(`/welcome?step=${lastStep}`);
     }
-  }, [router, isOnboardingCompleted]);
+  }, [isLoaded, isSignedIn, user, router]);
 
   return null;
 }
