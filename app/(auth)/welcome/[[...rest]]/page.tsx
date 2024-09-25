@@ -23,11 +23,11 @@ export default function RegistrationPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const { isLoaded, isSignedIn, user } = useUser();
 
-  if (!isLoaded || !isSignedIn) {
-    return;
-  }
-
   useEffect(() => {
+    if (!isLoaded || !isSignedIn) {
+      return;
+    }
+
     const stepParam = searchParams.get("step");
     const lastStep = localStorage.getItem("lastStep");
     const lastStepNumber = parseInt(lastStep || "0", 10);
@@ -46,7 +46,7 @@ export default function RegistrationPage() {
     if (lastStep === steps.length.toString()) {
       router.push("/dashboard");
     }
-  }, []);
+  }, [isLoaded, isSignedIn, user, searchParams, router]);
 
   const updateStep = (newStep: number) => {
     setCurrentStep(newStep);
@@ -65,6 +65,10 @@ export default function RegistrationPage() {
     router.push("/dashboard");
     updateStep(currentStep + 1);
   };
+
+  if (!isLoaded || !isSignedIn) {
+    return null;
+  }
 
   const CurrentStepComponent = steps[currentStep]?.component;
 
