@@ -13,6 +13,7 @@
       "type": "image/png"
     }
   ],
+  "image": "/membership/features-dark.png",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone"

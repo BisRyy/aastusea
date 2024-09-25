@@ -10,6 +10,15 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 
 const Sidebar = ({
   isOpen,
@@ -70,9 +79,50 @@ const Sidebar = ({
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="my-8 bg-gradient-to-r from-violet-600 to-indigo-600 relative rounded-lg p-6 shadow-lg text-center gap-3 overflow-hidden">
+        <div className="my-8 bg-gradient-to-r from-violet-600 to-indigo-600 relative rounded-lg p-6 shadow-lg text-center gap-3 overflow-hidden min-h-32">
           <div className="absolute inset-0 bg-gradient-to-tl from-primary via-black to-primary opacity-50"></div>
           <div className="relative z-10">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  variant="link"
+                  className="absolute bottom-1 right-2 p-1"
+                >
+                  <QuestionMarkCircledIcon className="w-4 h-4 text-white" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px] bg-background/90">
+                <MembershipSign />
+                <DialogHeader>
+                  <DialogTitle>Membership Level</DialogTitle>
+                  <DialogDescription>
+                    Your membership level represents your progress and unlocks
+                    new features. Increase your level by completing courses,
+                    participating in events, contributing to projects, and
+                    helping other members.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <p className="flex items-center">
+                    Current level: 1 <MembershipSign size={10} />
+                  </p>
+                  <p className="flex items-center ">
+                    Next level: 2 <MembershipSign size={10} />
+                  </p>
+                  <p>How to increase:</p>
+                  <ul className="list-disc list-inside">
+                    <li>Complete learning modules</li>
+                    <li>Participate in community events</li>
+                    <li>Submit projects</li>
+                    <li>Engage on community posts</li>
+                  </ul>
+                  <p>
+                    <span className="font-bold">Note:</span> Membership level is
+                    updated every week.
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
             <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-3">
               Membership Level
             </span>
