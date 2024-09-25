@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export type FeatureTab = {
   id: string;
@@ -123,9 +124,12 @@ const Membership = () => {
                 </p>
               </div>
               <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium xl:text-base">
+                <Button
+                  variant="secondary"
+                  className="text-sm bg-transparent hover:bg-transparent font-medium xl:text-base"
+                >
                   {tab.title.split(" ").slice(-2).join(" ")}
-                </button>
+                </Button>
               </div>
             </div>
           ))}
