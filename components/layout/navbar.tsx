@@ -226,9 +226,9 @@ export const Navbar = () => {
         </SignedIn>
 
         <SignedOut>
-          <Button asChild size="sm" variant="default" aria-label="Apply Now">
-            <Link aria-label="Apply Now" href="/welcome">
-              Apply Now
+          <Button asChild size="sm" variant="default" aria-label="Sign In">
+            <Link aria-label="Sign In" href="/dashboard">
+              Sign In
             </Link>
           </Button>
           {/* <SignInButton /> */}
