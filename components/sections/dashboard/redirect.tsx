@@ -22,7 +22,7 @@ export default function Redirect() {
       parseInt(lastStep, 10) < 4 &&
       !isOnboardingCompleted
     ) {
-      router.push(`/welcome?step=${lastStep}`);
+      router.push(`/welcome?step=${lastStep}&userId=${user.id}`);
     }
   }, [isLoaded, isSignedIn, user, router]);
 
