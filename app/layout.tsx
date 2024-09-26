@@ -17,6 +17,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Loglib from "@loglib/tracker/react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -179,6 +180,11 @@ export default function RootLayout({
           </ThemeProvider>
           <Analytics />
           <SpeedInsights />
+          <Loglib
+            config={{
+              id: "aastusea",
+            }}
+          />
           <GoogleAnalytics gaId="G-GBH5LWYQ1D" />
           <GoogleTagManager gtmId="GTM-W7TXLB47" />
         </body>
