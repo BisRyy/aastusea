@@ -10,7 +10,7 @@ const CounterAnimation = ({
   end: number;
   duration: number;
 }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(200);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
