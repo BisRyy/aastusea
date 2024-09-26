@@ -100,7 +100,7 @@ export const Navbar = () => {
       <div className="flex items-center lg:hidden gap-x-2">
         <div className=" lg:hidden">
           <SignedIn>
-            <UserButton />
+            <UserButton afterSwitchSessionUrl="/" />
           </SignedIn>
         </div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -155,7 +155,7 @@ export const Navbar = () => {
               <div className="flex items-center justify-between gap-2 w-full">
                 <ToggleTheme className="w-full" />
                 <SignedIn>
-                  <UserButton />
+                  <UserButton afterSwitchSessionUrl="/" />
                 </SignedIn>
               </div>
               <SignedIn>
@@ -247,7 +247,7 @@ export const Navbar = () => {
       <div className="hidden lg:flex gap-x-2">
         <ToggleTheme />
         <SignedIn>
-          <UserButton />
+          <UserButton afterSwitchSessionUrl="/" />
           <Button
             asChild
             size="sm"

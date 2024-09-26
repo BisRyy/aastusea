@@ -164,7 +164,7 @@ export default function RootLayout({
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <UserButton afterSwitchSessionUrl="/"/>
           </SignedIn> */}
           <Toaster />
           <ThemeProvider
