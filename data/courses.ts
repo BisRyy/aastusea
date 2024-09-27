@@ -14,6 +14,20 @@ interface Course {
 
 export const AllCourses: Course[] = [
   {
+    title: "Notion 101: Introduction",
+    description:
+      "Navigate Notion, add blocks, create database views for yourself and small groups of teammates.",
+    company: "Notion Academy",
+    image: "/courses/notion-101.png",
+    link: "https://www.notion.so/help/notion-academy/course/101-introduction?utm_source=campus_leaders&utm_medium=campus_leaders&utm_campaign=bisratk",
+    datePublished: "2024-09-11",
+    dateModified: "2024-09-11",
+    postedBy: "Notion CL",
+    level: "beginner",
+    locked: false,
+    requiredMembership: 1,
+  },
+  {
     title: "Get started with GitHub and GitHub Copilot",
     description:
       "Understand the basics of version control and learn to use key features of GitHub and GitHub Codespaces.",

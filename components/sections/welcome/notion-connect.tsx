@@ -91,7 +91,7 @@ export function NotionConnect({ next }: { next: () => void }) {
             </Button>
           )}
         </div>
-        {isConnected && (
+        {/* {isConnected && (
           <div className="flex flex-col items-center space-y-2">
             <p className="text-sm text-accent-foreground/80">
               Here is your invite link to the AASTUSEA Notion Team Space:
@@ -113,7 +113,7 @@ export function NotionConnect({ next }: { next: () => void }) {
               </Button>
             </div>
           </div>
-        )}
+        )} */}
         <p className="text-sm ">
           Don&apos;t have a Notion account?{" "}
           <a
