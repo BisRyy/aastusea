@@ -13,14 +13,19 @@ const RightSidebar = ({ className }: { className?: string }) => {
   ];
 
   return (
-    <div className={cn("max-w-64 flex flex-col gap-4", className)}>
+    <div
+      className={cn(
+        "h-full overflow-y-auto md:overflow-visible max-w-64 flex flex-col gap-4",
+        className
+      )}
+    >
       <Link href="https://ntn.so/bisratk">
         <Image
           src={"/ads/Notion1.png"}
           alt="Campus Leader Logo"
-          height={1000}
-          width={1000}
-          className="rounded-md dark:invert"
+          height={400}
+          width={400}
+          className="rounded-md dark:invert w-full"
         />
       </Link>
       <Card>
