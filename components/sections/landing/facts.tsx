@@ -4,13 +4,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const CounterAnimation = ({
+  start = 0,
   end,
   duration,
 }: {
+  start?: number;
   end: number;
   duration: number;
 }) => {
-  const [count, setCount] = useState(200);
+  const [count, setCount] = useState(start);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -23,7 +25,9 @@ const CounterAnimation = ({
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / duration, 1);
-      setCount(Math.floor(end * percentage));
+      const currentCount = Math.floor(start + (end - start) * percentage); // Update count calculation
+
+      setCount(currentCount);
 
       if (percentage < 1) {
         animationFrame = requestAnimationFrame(animate);
@@ -37,7 +41,7 @@ const CounterAnimation = ({
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, [end, duration, isInView]);
+  }, [end, duration, isInView, start]); // Include start in dependencies
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -156,7 +160,34 @@ const FunFact = () => {
               <h3 className="mb-2.5 text-3xl font-bold xl:text-[40px]">
                 <CounterAnimation end={usersCount} duration={5000} />+
               </h3>
-              <p className="text-lg lg:text-xl">Students Registered</p>
+              <p className="text-lg lg:text-xl">New Members</p>
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  y: -20,
+                },
+
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="animate-fade-down text-center"
+            >
+              <h3 className="mb-2.5 text-3xl font-bold xl:text-[40px]">
+                <CounterAnimation
+                  start={1007}
+                  end={1007 + usersCount}
+                  duration={5000}
+                />
+              </h3>
+              <p className="text-lg lg:text-xl">Total Members</p>
             </motion.div>
             <motion.div
               variants={{
