@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function DashboardLayout({ children }: Props) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className={cn("flex flex-col antialiased h-screen overflow-hidden")}>

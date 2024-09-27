@@ -50,7 +50,7 @@ const DashboardNavbar = () => {
     { name: "Events", path: "/events", external: false, locked: true },
     {
       name: "Workspace",
-      path: "https://www.notion.so/aastusea?utm_source=campus_leaders&utm_medium=campus_leaders&utm_campaign=bisratk",
+      path: "https://aastusea.notion.site?utm_source=campus_leaders&utm_medium=campus_leaders&utm_campaign=bisratk",
       external: true,
     },
     { name: "Community", path: "https://t.me/aastu_sea", external: true },
