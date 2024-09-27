@@ -152,6 +152,7 @@ export default function RootLayout({
       appearance={{
         baseTheme: dark,
       }}
+      afterSignOutUrl="/"
     >
       <html lang="en">
         <body
@@ -165,7 +166,7 @@ export default function RootLayout({
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserButton afterSwitchSessionUrl="/"/>
+            <UserButton afterSwitchSessionUrl="/dashboard"/>
           </SignedIn> */}
           <Toaster />
           <ThemeProvider
