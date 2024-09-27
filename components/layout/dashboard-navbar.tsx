@@ -129,7 +129,7 @@ const DashboardNavbar = () => {
         {/* mobile */}
         <div className="flex items-center space-x-4">
           <ToggleTheme />
-          <UserButton afterSwitchSessionUrl="/" />
+          <UserButton afterSwitchSessionUrl="/dashboard" />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">

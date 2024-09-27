@@ -22,7 +22,10 @@ export function LinkedInConnect({
   const handleFollow = async () => {
     setIsFollowLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
-    window.open("https://www.linkedin.com/company/aastusea", "_blank");
+    window.open(
+      process.env.NEXT_PUBLIC_LINKEDIN_SHARE_URL,
+      "_blank"
+    );
     setIsFollowed(true);
     setIsFollowLoading(false);
   };
@@ -39,7 +42,7 @@ export function LinkedInConnect({
     "Go to your LinkedIn profile and click on 'Add profile section', then choose 'Experience'",
     "Enter 'AASTU Software Engineering Association' as the organization",
     "For your title, choose a position you'd like to work on professionally and add 'Associate' to it (e.g., 'Software Engineer Associate or DevOps Engineer Associate')",
-    "Set the start date, add a brief description of your role, and click 'Save'",
+    "Set the start date, add a brief description of your role, and click 'Save'. Finally share this opportunity with friends.",
   ];
 
   return (
@@ -112,18 +115,18 @@ export function LinkedInConnect({
         </motion.ol>
         <div className="flex gap-4 flex-col sm:flex-row w-full max-w-md">
           <Button
+            className={`w-full ${isAdded || isAddLoading ? "opacity-50" : ""}`}
+            onClick={handleAddExperience}
+          >
+            {isAddLoading ? "Opening LinkedIn..." : "Add Experience"}
+          </Button>
+          <Button
             className={`w-full ${
               isFollowed || isFollowLoading ? "opacity-50" : ""
             }`}
             onClick={handleFollow}
           >
-            {isFollowLoading ? "Redirecting..." : "Follow AASTUSEA"}
-          </Button>
-          <Button
-            className={`w-full ${isAdded || isAddLoading ? "opacity-50" : ""}`}
-            onClick={handleAddExperience}
-          >
-            {isAddLoading ? "Opening LinkedIn..." : "Add Experience"}
+            {isFollowLoading ? "Redirecting..." : "Share on with Friends"}
           </Button>
           {isFollowed && isAdded && (
             <Button className="w-full" onClick={() => next()}>
