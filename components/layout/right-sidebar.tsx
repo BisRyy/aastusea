@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const RightSidebar = ({ className }: { className?: string }) => {
   const importantLinks = [
@@ -12,7 +13,16 @@ const RightSidebar = ({ className }: { className?: string }) => {
   ];
 
   return (
-    <div className={cn("max-w-64", className)}>
+    <div className={cn("max-w-64 flex flex-col gap-4", className)}>
+      <Link href="https://ntn.so/bisratk">
+        <Image
+          src={"/ads/Notion1.png"}
+          alt="Campus Leader Logo"
+          height={1000}
+          width={1000}
+          className="rounded-md dark:invert"
+        />
+      </Link>
       <Card>
         <CardHeader>
           <CardTitle>Quick Links</CardTitle>
@@ -31,6 +41,17 @@ const RightSidebar = ({ className }: { className?: string }) => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="https://ntn.so/bisratk">
+                  <Image
+                    src={"/ads/Notion2.png"}
+                    alt="Campus Leader Logo"
+                    height={1000}
+                    width={1000}
+                    className="rounded-md dark:invert"
+                  />
+                </Link>
+              </li>
             </ul>
           </nav>
         </CardContent>

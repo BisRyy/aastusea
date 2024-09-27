@@ -154,9 +154,6 @@ export const Navbar = () => {
             <SheetFooter className="flex flex-col gap-2">
               <div className="flex items-center justify-between gap-2 w-full">
                 <ToggleTheme className="w-full" />
-                <SignedIn>
-                  <UserButton afterSwitchSessionUrl="/dashboard" />
-                </SignedIn>
               </div>
               <SignedIn>
                 <Button
