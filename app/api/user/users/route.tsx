@@ -6,6 +6,7 @@ export async function GET() {
     headers: {
       Authorization: `Bearer ${process.env.CLERK_SECRET_KEY}`,
     },
+    cache: "no-store",
   }).then((res) => res.json());
 
   return NextResponse.json({ total_count }, { status: 200 });
