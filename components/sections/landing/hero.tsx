@@ -23,12 +23,7 @@ export const HeroSection = () => {
               <Badge>New</Badge>
             </span>
             <span>
-              {" "}
-              Members registration will be closed on{" "}
-              <span className="font-extrabold underline">
-                September 30, 2024
-              </span>
-              !{" "}
+              Our Learning Platform is now ready!
             </span>
           </Badge>
 
@@ -60,7 +55,7 @@ export const HeroSection = () => {
               as={Link}
               href="/register"
             >
-              Apply Now
+              Join Now
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </MovingBorderButton>
 

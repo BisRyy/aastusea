@@ -15,6 +15,7 @@ export default function Redirect() {
 
     const isOnboardingCompleted = user.publicMetadata.isOnboardingCompleted;
     const lastStep = window.localStorage.getItem("lastStep");
+    console.log(lastStep, isOnboardingCompleted);
 
     if (
       lastStep &&

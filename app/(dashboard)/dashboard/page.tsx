@@ -1,12 +1,12 @@
 import TabsDemo from "@/components/sections/dashboard/tabs";
 import RightSidebar from "@/components/layout/right-sidebar";
-import Redirect from "../../../components/sections/dashboard/redirect";
+import Redirect from "@/components/sections/dashboard/redirect";
 import { currentUser } from "@clerk/nextjs/server";
 import { CourseList } from "@/components/sections/learning/CourseList";
 import { AllCourses } from "@/data/courses";
-import CourseTable from "../../../components/sections/dashboard/course-table";
+import CourseTable from "@/components/sections/dashboard/course-table";
 import { LoaderIcon, ShareIcon } from "lucide-react";
-import Greeting from "../../../components/sections/dashboard/greeting";
+import Greeting from "@/components/sections/dashboard/greeting";
 import { Button } from "@/components/ui/button";
 import { QuestionMarkCircledIcon, Share1Icon } from "@radix-ui/react-icons";
 import {

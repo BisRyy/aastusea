@@ -28,7 +28,7 @@ async function getData(slug: string) {
       {
         retries: 2,
         onFailedAttempt: (error) => {
-          console.log(error);
+          // console.log(error);
         },
       }
     );

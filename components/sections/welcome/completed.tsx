@@ -22,7 +22,6 @@ async function updateUserPrivateMetadata(
     }
 
     const data = await response.json();
-    console.log("Data:", data);
     return data.success;
   } catch (error) {
     console.error("Error updating user metadata:", error);
