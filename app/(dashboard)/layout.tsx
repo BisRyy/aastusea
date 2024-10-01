@@ -16,7 +16,11 @@ export default function DashboardLayout({ children }: Props) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className={cn("flex flex-col antialiased h-screen overflow-hidden")}>
+    <div
+      className={cn(
+        "container flex flex-col antialiased h-screen overflow-hidden"
+      )}
+    >
       <DashboardNavbar />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />

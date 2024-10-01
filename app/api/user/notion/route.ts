@@ -25,7 +25,7 @@ export async function GET() {
       return NextResponse.json({ message: "Invalid OAuth token for Notion" });
     }
 
-    console.log("accessToken", accessToken);
+    // console.log("accessToken", accessToken);
 
     // Fetch the user data from the Notion API
     // This endpoint fetches a list of users

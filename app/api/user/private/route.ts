@@ -8,7 +8,6 @@ export async function POST(request: Request) {
       [key]: value,
     },
   });
-  console.log("Updated user private metadata", key, value);
   return NextResponse.json({ user, success: true });
 }
 
