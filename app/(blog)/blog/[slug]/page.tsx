@@ -5,6 +5,7 @@ import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { Work_Sans } from "next/font/google";
 // import Script from "next/script"; // Removed unused import
 import Comments from "./comment";
+import { getDateStr } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -93,18 +94,9 @@ export default async function BlogPost({
 
   const html = await renderer.render(...blocks);
 
-  const getDateStr = (date: string) => {
-    const d = new Date(date);
-    return d.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
   return (
     <div
-      className={`prose-sm dark:prose-invert md:prose prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-10 ${worksans.className}`}
+      className={`prose-sm dark:prose-invert md:prose prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
     >
       <Breadcrumb className="place-self-start items-start">
         <BreadcrumbList>
@@ -115,20 +107,24 @@ export default async function BlogPost({
           <BreadcrumbItem>
             <BreadcrumbLink href="/blog">Blogs</BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>
-              {(post.properties.Title as any)?.title[0]?.plain_text || ""}
-            </BreadcrumbPage>
-          </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="pt-16">
+      <h1 className="pt-10">
         {(post.properties.Title as any)?.title[0]?.plain_text || ""}
       </h1>
       <title className="hidden">
         {(post.properties.Title as any)?.title[0]?.plain_text || ""}
       </title>
+      <div className="flex gap-2 flex-wrap place-self-start items-start pb-4">
+        {(post.properties.Tags as any)?.multi_select.map((tag: any) => (
+          <span
+            key={tag.id}
+            className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm"
+          >
+            {tag.name}
+          </span>
+        ))}
+      </div>
       <div className="flex justify-between items-center w-full">
         {post.properties.Author && (
           <div className="role">
