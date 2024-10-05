@@ -21,6 +21,12 @@ export const fetchBlogs = React.cache(async () => {
         equals: "Published",
       },
     },
+    sorts: [
+      {
+        property: "DatePublished",
+        direction: "ascending",
+      },
+    ],
   });
 
   return response.results;
