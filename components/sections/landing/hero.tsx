@@ -22,9 +22,7 @@ export const HeroSection = () => {
             <span className="mr-2 text-primary">
               <Badge>New</Badge>
             </span>
-            <span>
-              Our Learning Platform is now ready!
-            </span>
+            <span>Our Learning Platform is now ready!</span>
           </Badge>
 
           <div className="max-w-sm px-4 sm:px-10 md:max-w-screen-md text-wrap lg:max-w-screen-md mx-auto text-center text-3xl sm:text-4xl md:text-6xl font-bold">
@@ -77,12 +75,15 @@ export const HeroSection = () => {
           <Image
             width={1200}
             height={1200}
-            className="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-secondary  border-t-primary/30"
-            src={
-              theme === "light"
-                ? "/membership/dashboard-light.png"
-                : "/membership/dashboard-dark.png"
-            }
+            className="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none hidden dark:flex items-center border border-t-2 border-secondary  border-t-primary/30"
+            src={"/membership/dashboard-dark.png"}
+            alt="dashboard"
+          />
+          <Image
+            width={1200}
+            height={1200}
+            className="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-secondary  border-t-primary/30 dark:hidden"
+            src={"/membership/dashboard-light.png"}
             alt="dashboard"
           />
 
