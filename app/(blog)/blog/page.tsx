@@ -13,12 +13,14 @@ export default async function Blogs() {
           className=" shadow-md rounded-lg overflow-hidden"
         >
           <Link href={`/blog/${post.properties.Slug.rich_text[0].plain_text}`}>
-          <Image
-            src={post.properties.Cover.files[0]?.file?.url || "/logo-full.png"}
-            width={300}
-            height={400}
-            alt="AASTU Software Engineers Associaltion"
-          />
+            <Image
+              src={
+                post.properties.Cover.files[0]?.file?.url || "/logo-light.png"
+              }
+              width={300}
+              height={400}
+              alt="AASTU Software Engineers Associaltion"
+            />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">
                 {post.properties.Title.title[0].plain_text}

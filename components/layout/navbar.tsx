@@ -23,6 +23,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "../theme-toggle";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 interface RouteProps {
   href: string;
@@ -35,6 +37,10 @@ interface FeatureProps {
 }
 
 const routeList: RouteProps[] = [
+  {
+    href: "/blog",
+    label: "Blog",
+  },
   {
     href: "/learning",
     label: "Learning",
@@ -79,10 +85,17 @@ const featureList: FeatureProps[] = [
   },
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ className }: { className?: string }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const path = usePathname();
+  const currentPath = path.split("/")[1] || "home";
   return (
-    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
+    <header
+      className={cn(
+        "shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card",
+        className
+      )}
+    >
       <Link href="/" className="font-bold text-lg flex items-center">
         <Image
           src="/logo-light.png"
@@ -201,7 +214,13 @@ export const Navbar = () => {
           <NavigationMenuItem>
             {routeList.map(({ href, label }) => (
               <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2 hover:underline">
+                <Link
+                  href={href}
+                  className={cn(
+                    "text-base px-2 hover:underline",
+                    currentPath === href.split("/")[1] && "underline"
+                  )}
+                >
                   {label}
                 </Link>
               </NavigationMenuLink>
