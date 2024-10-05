@@ -1,59 +1,43 @@
-// import { BenefitsSection } from "@/components/layout/sections/benefits";
-// import { CommunitySection } from "@/components/layout/sections/community";
+import { CommunitySection } from "@/components/sections/landing/community";
 // import { ContactSection } from "@/components/layout/sections/contact";
-// import { FAQSection } from "@/components/layout/sections/faq";
-// import { FeaturesSection } from "@/components/layout/sections/features";
+import { FAQSection } from "@/components/sections/landing/faq";
 // import { FooterSection } from "@/components/layout/sections/footer";
-import { HeroSection } from "@/components/layout/sections/hero";
+import { HeroSection } from "@/components/sections/landing/hero";
 import CoursesPage from "./learning/page";
 // import { PricingSection } from "@/components/layout/sections/pricing";
 // import { ServicesSection } from "@/components/layout/sections/services";
-// import { SponsorsSection } from "@/components/layout/sections/sponsors";
-// import { TeamSection } from "@/components/layout/sections/team";
+import { SponsorsSection } from "@/components/sections/landing/sponsors";
+import { TeamSection } from "@/components/sections/landing/team";
+import { CourseSection } from "@/components/sections/landing/courses";
+import { BenefitsSection } from "@/components/sections/landing/benefits";
+import Facts from "@/components/sections/landing/facts";
+import MembershipSection from "@/components/sections/landing/membership";
+import FooterSection from "@/components/sections/landing/footer";
 // import { TestimonialSection } from "@/components/layout/sections/testimonial";
 
 export const metadata = {
   title: "AASTU Software Engineers Association",
-  description: "Free Shadcn landing page for developers",
-  openGraph: {
-    type: "website",
-    url: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "AASTU Software Engineers Association",
-    description: "Free Shadcn landing page for developers",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
-        width: 1200,
-        height: 630,
-        alt: "AASTU Software Engineers Association",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "AASTU Software Engineers Association",
-    description: "Free Shadcn landing page for developers",
-    images: ["/logo-full-light.png"],
-  },
+  description:
+    "We are a community of software engineers who are passionate about technology and innovation. We are committed to empowering the next generation of software engineers.",
 };
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <CoursesPage /> */}
+      <SponsorsSection />
+      <BenefitsSection />
+      <Facts />
+      <MembershipSection />
+      <CourseSection />
+      {/* <TeamSection /> */}
+      <CommunitySection />
+      <FAQSection />
+      <FooterSection />
     </>
   );
 }
-// <SponsorsSection />
-// <BenefitsSection />
-// <FeaturesSection />
 // <ServicesSection />
 // <TestimonialSection />
-// <TeamSection />
-// <CommunitySection />
-// <PricingSection />
 // <ContactSection />
-// <FAQSection />
 // <FooterSection />

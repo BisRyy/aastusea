@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Github, Menu } from "lucide-react";
+import { ArrowRight, ChevronsDown, Github, Menu, MenuIcon } from "lucide-react";
 import React from "react";
 import {
   Sheet,
@@ -36,24 +36,28 @@ interface FeatureProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "/#learning",
+    href: "/learning",
     label: "Learning",
   },
+  // {
+  //   href: "/#projects",
+  //   label: "Projects",
+  // },
+  // {
+  //   href: "/#events",
+  //   label: "Events",
+  // },
+  // {
+  //   href: "/#team",
+  //   label: "Team",
+  // },
+  // {
+  //   href: "/#faq",
+  //   label: "FAQ",
+  // },
   {
-    href: "/#projects",
-    label: "Projects",
-  },
-  {
-    href: "/#events",
-    label: "Events",
-  },
-  {
-    href: "/#team",
-    label: "Team",
-  },
-  {
-    href: "/#faq",
-    label: "FAQ",
+    href: "/#community",
+    label: "Community",
   },
 ];
 
@@ -82,7 +86,7 @@ export const Navbar = () => {
       <Link href="/" className="font-bold text-lg flex items-center">
         <Image
           src="/logo-light.png"
-          alt="RadixLogo"
+          alt="AASTUSEA"
           width={600}
           height={600}
           className="object-cover bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
@@ -93,12 +97,18 @@ export const Navbar = () => {
         </span>
       </Link>
       {/* <!-- Mobile --> */}
-      <div className="flex items-center lg:hidden">
+      <div className="flex items-center lg:hidden gap-x-2">
+        <div className=" lg:hidden">
+          <SignedIn>
+            <UserButton afterSwitchSessionUrl="/dashboard" />
+          </SignedIn>
+        </div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Menu
+            <MenuIcon
               onClick={() => setIsOpen(!isOpen)}
               className="cursor-pointer lg:hidden"
+              size={32}
             />
           </SheetTrigger>
 
@@ -112,7 +122,7 @@ export const Navbar = () => {
                   <Link href="/" className="flex items-center">
                     <Image
                       src="/logo-light.png"
-                      alt="RadixLogo"
+                      alt="AASTUSEA"
                       width={600}
                       height={600}
                       className="object-cover bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
@@ -140,10 +150,46 @@ export const Navbar = () => {
               </div>
             </div>
 
-            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-              <Separator className="mb-2" />
-
-              <ToggleTheme />
+            <Separator className="mb-2" />
+            <SheetFooter className="flex flex-col gap-2">
+              <div className="flex items-center justify-between gap-2 w-full">
+                <ToggleTheme className="w-full" />
+              </div>
+              <SignedIn>
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  asChild
+                  size="sm"
+                  variant="default"
+                  aria-label="Dashboard"
+                >
+                  <Link
+                    aria-label="Dashboard"
+                    href="/dashboard"
+                    className="flex items-center justify-between"
+                  >
+                    Dashboard
+                    <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </SignedIn>
+              <SignedOut>
+                <Button
+                  asChild
+                  size="sm"
+                  variant="default"
+                  aria-label="Sign In"
+                >
+                  <Link
+                    aria-label="Sign In"
+                    href="/dashboard"
+                    className="flex items-center justify-between"
+                  >
+                    Sign In
+                    <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </SignedOut>
             </SheetFooter>
           </SheetContent>
         </Sheet>
@@ -197,24 +243,28 @@ export const Navbar = () => {
 
       <div className="hidden lg:flex gap-x-2">
         <ToggleTheme />
-        {/* <SignedOut>
-          <SignInButton />
-        </SignedOut> */}
         <SignedIn>
-          <UserButton />
+          <UserButton afterSwitchSessionUrl="/dashboard" />
+          <Button
+            asChild
+            size="sm"
+            className=""
+            variant="default"
+            aria-label="Dashboard"
+          >
+            <Link aria-label="Dashboard" href="/dashboard">
+              Dashboard
+            </Link>
+          </Button>
         </SignedIn>
 
-        <Button
-          // asChild
-          size="sm"
-          disabled
-          variant="default"
-          aria-label="Apply Now"
-        >
-          <Link aria-label="Apply Now" href="/apply" target="_blank">
-            Apply Now
-          </Link>
-        </Button>
+        <SignedOut>
+          <Button asChild size="sm" variant="default" aria-label="Sign In">
+            <Link aria-label="Sign In" href="/dashboard">
+              Sign In
+            </Link>
+          </Button>
+        </SignedOut>
       </div>
     </header>
   );
