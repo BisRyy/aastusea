@@ -85,7 +85,11 @@ export default async function BlogPost({
   const post = await fetchBlogBySlug(params.slug);
   const posts = await fetchBlogs();
   if (!post) {
-    return <div>Post not found</div>;
+    return (
+      <section className="py-24 flex items-center justify-center">
+        <p className="text-center">Post not found.</p>
+      </section>
+    );
   }
 
   let blocks = await fetchPageBlocks(post.id);

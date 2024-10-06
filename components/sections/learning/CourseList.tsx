@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { shimmer, toBase64 } from "@/app/(blog)/blog/page";
 
 interface Course {
   image: string;
@@ -29,13 +30,19 @@ export const CourseList: React.FC<CourseListProps> = ({ courses }) => {
       {courses.map((course, index) => (
         <Card key={index} className="flex flex-col h-full border-gray-500">
           <CardHeader className="p-0">
-            <div className="relative w-full h-56">
+            <div className="relative w-full h-48">
               <Image
                 src={course.image}
-                alt={`${course.title} course image`}
+                alt={
+                  `${course.title} course image` ||
+                  "AASTU Software Engineers Association AASTUSEA Blog"
+                }
+                className="object-cover rounded-t-lg"
                 fill
-                style={{ objectFit: "cover" }}
-                className="rounded-t-lg"
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(700, 475)
+                )}`}
+                loading="lazy"
               />
             </div>
           </CardHeader>

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { AllCourses } from "@/data/courses";
 import { ArrowRight } from "lucide-react";
 import { CourseList } from "@/components/sections/learning/CourseList";
+import { shimmer, toBase64 } from "@/app/(blog)/blog/page";
 
 export default function CoursesPage() {
   return (
@@ -32,13 +33,19 @@ export default function CoursesPage() {
           .map((course: any, index: number) => (
             <Card key={index} className="flex flex-col h-full">
               <CardHeader className="p-0">
-                <div className="relative w-full h-56">
+                <div className="relative w-full h-48">
                   <Image
                     src={course.image}
-                    alt={`${course.title} course image`}
+                    alt={
+                      `${course.title} course image` ||
+                      "AASTU Software Engineers Association AASTUSEA Blog"
+                    }
+                    className="object-cover rounded-t-lg"
                     fill
-                    style={{ objectFit: "cover" }}
-                    className="rounded-t-lg"
+                    placeholder={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(700, 475)
+                    )}`}
+                    loading="lazy"
                   />
                 </div>
               </CardHeader>
