@@ -38,6 +38,10 @@ interface FeatureProps {
 
 const routeList: RouteProps[] = [
   {
+    href: "/event",
+    label: "Events",
+  },
+  {
     href: "/blog",
     label: "Blog",
   },
@@ -48,10 +52,6 @@ const routeList: RouteProps[] = [
   // {
   //   href: "/#projects",
   //   label: "Projects",
-  // },
-  // {
-  //   href: "/#events",
-  //   label: "Events",
   // },
   // {
   //   href: "/#team",

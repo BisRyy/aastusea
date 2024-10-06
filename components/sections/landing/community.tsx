@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { DiscordIcon, TelegramIcon } from "@/components/ui/icon";
+import { IconBook, IconBook2 } from "@tabler/icons-react";
 
 export const CommunitySection = () => {
   return (
@@ -31,11 +32,17 @@ export const CommunitySection = () => {
               like-minded enthusiasts. Click to dive in! 🚀
             </CardContent>
 
-            <CardFooter>
+            <CardFooter className="flex gap-2 flex-row md:flex-col">
               <Button asChild>
                 <a href="https://t.me/AASTUSEA" target="_blank">
                   <TelegramIcon className="mr-2" width={24} height={24} />
                   Join Telegram
+                </a>
+              </Button>
+              <Button asChild variant={"outline"}>
+                <a href="/blog">
+                  Read Our Blogs
+                  <IconBook className="ml-2" width={24} height={24} />
                 </a>
               </Button>
             </CardFooter>

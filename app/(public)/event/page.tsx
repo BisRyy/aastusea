@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function EventPage() {
   const searchParams = useSearchParams();
-  const calendarId = searchParams.get("calId") || "cal-jb9NyHL2FxjKYXO"; // Default event ID
+  const calendarId = searchParams.get("calId") || "cal-7nrj5XW7BPF2SsM"; // Default event ID
 
   return (
     <div className="flex items-center min-h-screen pt-10">

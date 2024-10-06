@@ -15,6 +15,25 @@ import Image from "next/image";
 import Link from "next/link";
 import LoadMoreButton from "./button";
 
+export const toBase64 = (str: string) =>
+  typeof window === "undefined"
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
+
+export const shimmer = (w: number, h: number) => `
+<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="g">
+      <stop stop-color="#333" offset="20%" />
+      <stop stop-color="#222" offset="50%" />
+      <stop stop-color="#333" offset="70%" />
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#333" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+</svg>`;
+
 export default async function BentoGridDemo() {
   const posts = await fetchBlogs();
 
@@ -28,7 +47,7 @@ export default async function BentoGridDemo() {
       <h2 className="font-manrope text-4xl font-bold text-center mb-14">
         Our popular blogs
       </h2>
-      <BentoGrid className="max-w-4xl mx-auto">
+      <BentoGrid className="max-w-4xl mx-4 md:mx-auto">
         {posts.map((post: any, i: number): any => (
           <BentoGridItem
             key={i}
@@ -39,7 +58,7 @@ export default async function BentoGridDemo() {
                 : ""
             }
             header={
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full min-h-44">
                 <Image
                   src={
                     (post.properties.Cover as any)?.files[0]?.file?.url ||
@@ -49,8 +68,11 @@ export default async function BentoGridDemo() {
                     (post.properties.Title as any)?.title[0]?.plain_text ||
                     "AASTU Software Engineers Association AASTUSEA Blog"
                   }
-                  className="rounded-lg object-cover border"
+                  className="rounded-lg object-cover border dark:border-white/[0.2] border-black/20 "
                   fill
+                  placeholder={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(700, 475)
+                  )}`}
                 />
               </div>
             }
