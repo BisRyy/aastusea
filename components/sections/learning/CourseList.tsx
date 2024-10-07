@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { shimmer, toBase64 } from "@/app/(blog)/blog/page";
+import { shimmer } from "@/lib/utils";
 
 interface Course {
   image: string;
@@ -25,6 +25,10 @@ interface CourseListProps {
 }
 
 export const CourseList: React.FC<CourseListProps> = ({ courses }) => {
+  const toBase64 = (str: string) =>
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
+      : window.btoa(str);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {courses.map((course, index) => (

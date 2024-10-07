@@ -12,9 +12,13 @@ import { Button } from "@/components/ui/button";
 import { AllCourses } from "@/data/courses";
 import { ArrowRight } from "lucide-react";
 import { CourseList } from "@/components/sections/learning/CourseList";
-import { shimmer, toBase64 } from "@/app/(blog)/blog/page";
+import { shimmer } from "@/lib/utils";
 
 export default function CoursesPage() {
+  const toBase64 = (str: string) =>
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
+      : window.btoa(str);
   return (
     <div className="container mx-auto py-12" id="learning">
       <h1 className="text-3xl font-bold mb-8 text-center">Courses</h1>

@@ -70,7 +70,7 @@ import {
 import { Metadata } from "next";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Image from "next/image";
-import { shimmer, toBase64 } from "../page";
+import { shimmer } from "@/lib/utils";
 
 const worksans = Work_Sans({
   subsets: ["latin"],
@@ -106,6 +106,11 @@ export default async function BlogPost({
   // });
 
   const html = await renderer.render(...blocks);
+
+  const toBase64 = (str: string) =>
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
+      : window.btoa(str);
 
   return (
     <div>
