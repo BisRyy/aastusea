@@ -10,7 +10,7 @@ export const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-export const databaseId = process.env.NOTION_DATABASE_ID;
+export const databaseId = process.env.NOTION_BLOGS_DATABASE_ID;
 
 export const fetchBlogs = React.cache(async () => {
   const response = await notion.databases.query({
@@ -63,4 +63,38 @@ export const fetchPageBlocks = React.cache(async (pageId: string) => {
       block_id: pageId,
     })
     .then((response) => response.results as BlockObjectResponse[]);
+});
+
+export const fetchEvents = React.cache(async (status?: string) => {
+  const response = await notion.databases.query({
+    database_id: process.env.NOTION_EVENTS_DATABASE_ID!,
+    filter: {
+      property: "Status",
+      status: {
+        equals: status || "Upcoming",
+      },
+    },
+    sorts: [
+      {
+        property: "StartDate",
+        direction: "ascending",
+      },
+    ],
+  });
+
+  return response.results;
+});
+
+export const fetchEventById = React.cache(async (id: any) => {
+  return notion.databases
+    .query({
+      database_id: process.env.NOTION_EVENTS_DATABASE_ID!,
+      filter: {
+        property: "Status",
+        status: {
+          equals: "Published",
+        },
+      },
+    })
+    .then((response) => response.results[0] as PageObjectResponse | undefined);
 });

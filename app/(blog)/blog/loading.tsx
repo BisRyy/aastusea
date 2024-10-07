@@ -24,10 +24,11 @@ const TextSkeleton = ({ width }: { width: string }) => (
 
 export default function Loading() {
   return (
-    <section className="py-24 ">
-      <h2 className="font-manrope text-4xl font-bold text-center mb-14">
-        Our popular blogs
-      </h2>
+    <section className="container mx-auto py-12" id="blogs">
+      <h1 className="text-3xl font-bold mb-8 text-center">Our popular blogs</h1>
+      <p className="text-lg text-center text-gray-600 mb-8 dark:text-gray-400">
+        Read our latest blog posts and stay up-to-date with the latest trends.
+      </p>
       <BentoGrid className="max-w-4xl mx-4 md:mx-auto">
         {[0, 1, 2, 3, 4, 5, 6].map((item, i) => (
           <BentoGridItem

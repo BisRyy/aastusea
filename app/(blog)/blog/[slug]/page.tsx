@@ -70,7 +70,7 @@ import {
 import { Metadata } from "next";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import Image from "next/image";
-import { shimmer, toBase64 } from "../page";
+import { shimmer } from "@/lib/utils";
 
 const worksans = Work_Sans({
   subsets: ["latin"],
@@ -85,7 +85,11 @@ export default async function BlogPost({
   const post = await fetchBlogBySlug(params.slug);
   const posts = await fetchBlogs();
   if (!post) {
-    return <div>Post not found</div>;
+    return (
+      <section className="py-24 flex items-center justify-center">
+        <p className="text-center">Post not found.</p>
+      </section>
+    );
   }
 
   let blocks = await fetchPageBlocks(post.id);
@@ -102,6 +106,11 @@ export default async function BlogPost({
   // });
 
   const html = await renderer.render(...blocks);
+
+  const toBase64 = (str: string) =>
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
+      : window.btoa(str);
 
   return (
     <div>
