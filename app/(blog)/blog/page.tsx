@@ -3,7 +3,7 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { fetchBlogs } from "@/lib/notion";
 import Image from "next/image";
 import LoadMoreButton from "./button";
-import { shimmer } from "@/lib/utils";
+import { shimmer, shimmerDark } from "@/lib/utils";
 
 export default async function BentoGridDemo() {
   const posts = await fetchBlogs();
@@ -47,10 +47,25 @@ export default async function BentoGridDemo() {
                     (post.properties.Title as any)?.title[0]?.plain_text ||
                     "AASTU Software Engineers Association AASTUSEA Blog"
                   }
-                  className="rounded-lg object-cover border dark:border-white/[0.2] border-black/20 "
+                  className="hidden dark:block rounded-lg object-cover border dark:border-white/[0.2] border-black/20"
                   fill
                   placeholder={`data:image/svg+xml;base64,${toBase64(
                     shimmer(700, 475)
+                  )}`}
+                />
+                <Image
+                  src={
+                    (post.properties.Cover as any)?.files[0]?.file?.url ||
+                    "/logo-light.png"
+                  }
+                  alt={
+                    (post.properties.Title as any)?.title[0]?.plain_text ||
+                    "AASTU Software Engineers Association AASTUSEA Blog"
+                  }
+                  className="dark:hidden rounded-lg object-cover border dark:border-white/[0.2] border-black/20"
+                  fill
+                  placeholder={`data:image/svg+xml;base64,${toBase64(
+                    shimmerDark(700, 475)
                   )}`}
                 />
               </div>

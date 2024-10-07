@@ -8,9 +8,8 @@ import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { Work_Sans } from "next/font/google";
-// import Script from "next/script"; // Removed unused import
 import Comments from "./comment";
-import { getDateStr } from "@/lib/utils";
+import { getDateStr, shimmerDark } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -187,10 +186,25 @@ export default async function BlogPost({
                       (post.properties.Title as any)?.title[0]?.plain_text ||
                       "AASTU Software Engineers Association AASTUSEA Blog"
                     }
-                    className="rounded-lg object-cover border dark:border-white/[0.2] border-black/20 "
+                    className="hidden dark:block rounded-lg object-cover border dark:border-white/[0.2] border-black/20 "
                     fill
                     placeholder={`data:image/svg+xml;base64,${toBase64(
                       shimmer(700, 475)
+                    )}`}
+                  />
+                  <Image
+                    src={
+                      (post.properties.Cover as any)?.files[0]?.file?.url ||
+                      "/logo-light.png"
+                    }
+                    alt={
+                      (post.properties.Title as any)?.title[0]?.plain_text ||
+                      "AASTU Software Engineers Association AASTUSEA Blog"
+                    }
+                    className="dark:hidden rounded-lg object-cover border dark:border-white/[0.2] border-black/20 "
+                    fill
+                    placeholder={`data:image/svg+xml;base64,${toBase64(
+                      shimmerDark(700, 475)
                     )}`}
                   />
                 </div>

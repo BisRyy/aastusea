@@ -4,7 +4,7 @@ import Image from "next/image";
 import LoadMoreButton from "@/app/(blog)/blog/button";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { shimmer } from "@/lib/utils";
+import { shimmer, shimmerDark } from "@/lib/utils";
 
 export default async function BentoGridDemo() {
   const events = await fetchEvents();
@@ -80,10 +80,22 @@ const EventCard = ({ event }: { event: any }) => {
               Title?.title[0]?.plain_text ||
               "AASTU Software Engineers Association AASTUSEA Blog"
             }
-            className="rounded-lg object-cover border dark:border-white/[0.2] border-black/20 dark:invert object-top"
+            className="hidden dark:block invert rounded-lg object-cover border dark:border-white/[0.2] border-black/20 object-top"
             fill
             placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(700, 475)
+              shimmerDark(700, 475)
+            )}`}
+          />
+          <Image
+            src={Cover?.files[0]?.file?.url || "/default-image.png"}
+            alt={
+              Title?.title[0]?.plain_text ||
+              "AASTU Software Engineers Association AASTUSEA Blog"
+            }
+            className="dark:hidden rounded-lg object-cover border dark:border-white/[0.2] border-black/20 dark:invert object-top"
+            fill
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+              shimmerDark(700, 475)
             )}`}
           />
         </div>
