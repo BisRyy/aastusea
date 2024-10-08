@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { AllCourses } from "@/data/courses";
 import { ArrowRight } from "lucide-react";
 import { CourseList } from "@/components/sections/learning/CourseList";
-import { shimmer } from "@/lib/utils";
+import { shimmer, shimmerDark } from "@/lib/utils";
 
 export default function CoursesPage() {
   const toBase64 = (str: string) =>
@@ -44,10 +44,23 @@ export default function CoursesPage() {
                       `${course.title} course image` ||
                       "AASTU Software Engineers Association AASTUSEA Blog"
                     }
-                    className="object-cover rounded-t-lg"
+                    className="hidden dark:block object-cover rounded-t-lg"
                     fill
                     placeholder={`data:image/svg+xml;base64,${toBase64(
                       shimmer(700, 475)
+                    )}`}
+                    loading="lazy"
+                  />
+                  <Image
+                    src={course.image}
+                    alt={
+                      `${course.title} course image` ||
+                      "AASTU Software Engineers Association AASTUSEA Blog"
+                    }
+                    className="dark:hidden object-cover rounded-t-lg"
+                    fill
+                    placeholder={`data:image/svg+xml;base64,${toBase64(
+                      shimmerDark(700, 475)
                     )}`}
                     loading="lazy"
                   />
