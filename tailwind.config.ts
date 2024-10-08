@@ -97,6 +97,7 @@ const config = {
     require("tailwindcss-animate"),
     matchUtilities,
     addVariablesForColors,
+    require("@tailwindcss/typography"),
   ],
 } satisfies Config;
 

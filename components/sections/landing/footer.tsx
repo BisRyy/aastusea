@@ -1,12 +1,7 @@
 export default function FooterSection() {
   return (
-    <footer className="py-6 md:px-8 md:py-0">
-      <div className="text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()}
-        <span className="font-bold"> AASTU Software Engineers Association</span>
-        . All rights reserved.
-      </div>
-      <div className="container flex flex-col items-center justify-between gap-2 md:h-24 md:flex-row">
+    <footer className="py-6 md:px-8 md:py-16">
+      <div className="container flex flex-col items-center justify-between gap-2 md:h-24">
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
           <a
@@ -28,6 +23,15 @@ export default function FooterSection() {
           </a>
           .
         </p>
+        <div className="text-center text-lg text-muted-foreground">
+          &copy; {new Date().getFullYear()}
+          <span className="font-bold">
+            {" "}
+            AASTU Software Engineers Association.{" "}
+          </span>
+          <br />
+          All rights reserved.
+        </div>
       </div>
     </footer>
   );
