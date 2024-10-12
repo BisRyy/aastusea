@@ -47,7 +47,8 @@ const DashboardNavbar = () => {
   }, []);
 
   const navItems = [
-    { name: "Events", path: "/events", external: false, locked: true },
+    { name: "Events", path: "/event", external: false, locked: false },
+    { name: "Blogs", path: "/blog", external: false, locked: false },
     {
       name: "Workspace",
       path: "https://aastusea.notion.site?utm_source=campus_leaders&utm_medium=campus_leaders&utm_campaign=bisratk",
