@@ -19,6 +19,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { MembershipSign } from "@/components/layout/sidebar";
+import { shimmer } from "@/lib/utils";
 
 interface Course {
   image: string;
@@ -64,6 +65,11 @@ const CourseTable: React.FC<CourseTableProps> = ({
     );
     setFilteredCourses(filtered);
   }, [searchTerm, levelFilter, companyFilter, courses]);
+  
+  const toBase64 = (str: string) =>
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
+      : window.btoa(str);
 
   return (
     <div>
@@ -167,6 +173,10 @@ const CourseTable: React.FC<CourseTableProps> = ({
                       ? "opacity-50"
                       : ""
                   }`}
+                  placeholder={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(700, 475)
+                  )}`}
+                  loading="lazy"
                 />
               </div>
             </CardHeader>

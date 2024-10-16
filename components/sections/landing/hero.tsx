@@ -53,7 +53,7 @@ export const HeroSection = () => {
               as={Link}
               href="/register"
             >
-              Join Now
+              Apply Now
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </MovingBorderButton>
 

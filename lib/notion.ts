@@ -33,7 +33,6 @@ export const fetchBlogs = React.cache(async () => {
 });
 
 export const fetchBlogBySlug = React.cache(async (slug: string) => {
-  console.log("slug", slug);
   return notion.databases
     .query({
       database_id: databaseId!,
