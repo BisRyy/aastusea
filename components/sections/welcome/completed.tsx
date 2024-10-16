@@ -4,7 +4,7 @@ import { CheckCircle } from "lucide-react";
 import ConfettiComponent from "./confetti";
 import { useUser } from "@clerk/nextjs";
 
-async function updateUserPrivateMetadata(
+async function updateUserPublicMetadata(
   userId: string,
   key: string,
   value: any
@@ -60,7 +60,7 @@ const MembershipConfirmation = ({
             <Button
               className="w-full"
               onClick={() => {
-                updateUserPrivateMetadata(
+                updateUserPublicMetadata(
                   user?.id as string,
                   "isOnboardingCompleted",
                   true
