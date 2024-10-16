@@ -22,10 +22,7 @@ export function LinkedInConnect({
   const handleFollow = async () => {
     setIsFollowLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
-    window.open(
-      process.env.NEXT_PUBLIC_LINKEDIN_SHARE_URL,
-      "_blank"
-    );
+    window.open(process.env.NEXT_PUBLIC_LINKEDIN_SHARE_URL, "_blank");
     setIsFollowed(true);
     setIsFollowLoading(false);
   };
@@ -126,7 +123,7 @@ export function LinkedInConnect({
             }`}
             onClick={handleFollow}
           >
-            {isFollowLoading ? "Redirecting..." : "Share on with Friends"}
+            {isFollowLoading ? "Redirecting..." : "Share with Friends"}
           </Button>
           {isFollowed && isAdded && (
             <Button className="w-full" onClick={() => next()}>

@@ -15,5 +15,9 @@ export default async function Page() {
     return null;
   }
 
+  if (user.publicMetadata?.onboardingCompleted === true) {
+    return redirect(`/dashboard`);
+  }
+
   redirect(`/welcome?userId=${user.id}`);
 }

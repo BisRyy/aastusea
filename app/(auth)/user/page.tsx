@@ -14,7 +14,7 @@ export default async function Page() {
   // Use `user` to render user details or create UI elements
   return (
     <div>
-      <pre>{JSON.stringify(user?.privateMetadata, null, 2)}</pre>
+      <pre>{JSON.stringify(user?.publicMetadata, null, 2)}</pre>
     </div>
   );
 }
