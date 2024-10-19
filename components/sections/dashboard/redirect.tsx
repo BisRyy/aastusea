@@ -15,8 +15,8 @@ export default function Redirect() {
 
     const isOnboardingCompleted = user.publicMetadata.isOnboardingCompleted;
     const lastStep = window.localStorage.getItem("lastStep") || "0";
-    console.log(lastStep);
-    console.log(isOnboardingCompleted);
+    // console.log(lastStep);
+    // console.log(isOnboardingCompleted);
 
     if (parseInt(lastStep, 10) < 4 && isOnboardingCompleted !== true) {
       router.push(`/welcome?step=${lastStep}&userId=${user.id}`);

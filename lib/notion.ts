@@ -97,3 +97,38 @@ export const fetchEventById = React.cache(async (id: any) => {
     })
     .then((response) => response.results[0] as PageObjectResponse | undefined);
 });
+
+export const fetchPositions = React.cache(async (status?: string) => {
+  const response = await notion.databases.query({
+    database_id: process.env.NOTION_POSITIONS_DATABASE_ID!,
+    filter: {
+      property: "Status",
+      status: {
+        equals: status || "Active",
+      },
+    },
+    sorts: [
+      {
+        property: "ID",
+        direction: "ascending",
+      },
+    ],
+  });
+
+  return response.results;
+});
+
+export const fetchPositionById = React.cache(async (id: any) => {
+  console.log(id);
+  return notion.databases
+    .query({
+      database_id: process.env.NOTION_POSITIONS_DATABASE_ID!,
+      filter: {
+        property: "ID",
+        number: {
+          equals: parseInt(id),
+        },
+      },
+    })
+    .then((response) => response.results[0] as PageObjectResponse | undefined);
+});
