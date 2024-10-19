@@ -21,7 +21,8 @@ export async function generateMetadata({
 
   if (!position) return { title: id };
   return {
-    title: (position.properties.Title as any)?.title[0]?.plain_text || "",
+    title:
+      (position.properties.Title as any)?.title[0]?.plain_text || "AASTUSEA",
     description: (position.properties.Description as any)?.rich_text[0]
       ?.plain_text,
     keywords: (position.properties.Tags as any)?.multi_select.map(
@@ -36,8 +37,12 @@ export async function generateMetadata({
       url: `https://aastu.software/career/${id}`,
       images: [
         {
-          url: (position.properties.Cover as any)?.files[0]?.file?.url,
-          alt: (position.properties.Title as any)?.title[0]?.plain_text || "",
+          url:
+            (position.properties.Cover as any)?.files[0]?.file?.url ||
+            "https://aastu.software/logo-full.png",
+          alt:
+            (position.properties.Title as any)?.title[0]?.plain_text ||
+            "AASTUSEA Positions",
         },
       ],
     },
@@ -49,12 +54,14 @@ export async function generateMetadata({
       site: "@ayoubkhial",
       creator: "@ayoubkhial",
       images: {
-        url: (position.properties.Cover as any)?.files[0]?.file?.url,
+        url:
+          (position.properties.Cover as any)?.files[0]?.file?.url ||
+          "https://aastu.software/logo-full.png",
         alt: (position.properties.Title as any)?.title[0]?.plain_text || "",
       },
     },
     alternates: {
-      canonical: `https://aastu.software/career/${id}`,
+      canonical: `https://aastu.software/careers/${id}`,
     },
   };
 }
@@ -73,6 +80,7 @@ import Image from "next/image";
 import { shimmer } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { currentUser } from "@clerk/nextjs/server";
 
 const worksans = Work_Sans({
   subsets: ["latin"],
@@ -85,6 +93,7 @@ export default async function JobPostDetails({
   params: { id: string };
 }) {
   const position = await fetchPositionById(params.id);
+  const user = await currentUser();
   //   const positions = await fetchBlogs();
   if (!position) {
     return (
@@ -92,6 +101,10 @@ export default async function JobPostDetails({
         <p className="text-center">Position not found.</p>
       </section>
     );
+  }
+
+  if (!user) {
+    return null;
   }
 
   let blocks = await fetchPageBlocks(position.id);
@@ -173,10 +186,15 @@ export default async function JobPostDetails({
         </div>
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
         {(position.properties.Status as any)?.status.name === "Active" && (
-          <Button variant="default" className="mt-8 w-full text-md" asChild>
+          <Button
+            variant="default"
+            className="mt-8 w-full text-md text-white dark:text-white"
+          >
             <Link
-              href={`/careers/${params.id}/apply`}
-              className="no-underline w-full text-white dark:text-black"
+              href={`/careers/${params.id}/apply?userId=${user.id}&position=${
+                (position.properties.Title as any)?.title[0]?.plain_text
+              }`}
+              className="no-underline w-full text-white dark:text-white"
             >
               Apply for{" "}
               {(position.properties.Title as any)?.title[0]?.plain_text}
