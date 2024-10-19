@@ -114,7 +114,7 @@ export default async function BlogPost({
   return (
     <div>
       <div
-        className={`prose-sm dark:prose-invert md:prose prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
+        className={`prose-sm dark:prose-invert md:prose prose-ul:list-disc  prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
       >
         <Breadcrumb className="place-self-start items-start">
           <BreadcrumbList>

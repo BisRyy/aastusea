@@ -10,7 +10,7 @@ export default function Loading() {
   return (
     <div>
       <div
-        className={`prose-sm dark:prose-invert md:prose prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
+        className={`prose-sm dark:prose-invert md:prose prose-ul:list-disc  prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
       >
         <div className="pt-10 w-full h-10 bg-gray-200 dark:bg-gray-700 animate-pulse mb-4"></div>
         <div className="w-full h-6 bg-gray-200 dark:bg-gray-700 animate-pulse mb-2"></div>

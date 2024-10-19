@@ -46,6 +46,11 @@ const routeList: RouteProps[] = [
     label: "Blog",
   },
   {
+    href: "/careers",
+    label: "Career",
+  },
+
+  {
     href: "/learning",
     label: "Learning",
   },

@@ -110,7 +110,7 @@ export default async function EventPage({
   return (
     <div>
       <div
-        className={`prose-sm dark:prose-invert md:prose prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
+        className={`prose-sm dark:prose-invert md:prose prose-ul:list-disc  prose-img:max-h-96 flex flex-col items-center justify-center prose-img:mx-auto lg:prose-xl container py-16 ${worksans.className}`}
       >
         <h1 className="pt-10">
           {(event.properties.Title as any)?.title[0]?.plain_text || ""}

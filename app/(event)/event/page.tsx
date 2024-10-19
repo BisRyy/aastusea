@@ -4,7 +4,7 @@ import Image from "next/image";
 import LoadMoreButton from "@/app/(blog)/blog/button";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { shimmer, shimmerDark } from "@/lib/utils";
+import { getDateStr, shimmer, shimmerDark } from "@/lib/utils";
 
 export default async function BentoGridDemo() {
   const events = await fetchEvents();
@@ -101,7 +101,7 @@ const EventCard = ({ event }: { event: any }) => {
         </div>
         <div className="p-1">
           <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-            {StartDate?.date?.start}
+            {getDateStr(StartDate?.date?.start)}
           </p>
           <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-2">
             {Title?.title[0]?.plain_text}
