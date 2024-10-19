@@ -1,13 +1,13 @@
 import { MapPin } from "lucide-react";
+
 export default function Loading() {
   return (
-    <section className="container mx-auto py-12" id="events">
+    <section className="container mx-auto py-12" id="positions">
       <h1 className="text-3xl font-bold mb-8 text-center">
-        Our Upcoming Events
+        Our Open Positions
       </h1>
       <p className="text-lg text-center text-gray-600 mb-10 dark:text-gray-400">
-        Check out our upcoming events and stay up-to-date with the latest
-        happenings.
+        Check out our open positions and apply to join our team.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-1 gap-3 md:mx-auto">
         {Array.from({ length: 4 }).map((_, i) => (
@@ -27,7 +27,9 @@ export default function Loading() {
           </div>
         ))}
       </div>
-      <h2 className="font-manrope text-4xl font-bold my-14">Past Events</h2>
+      <h2 className="font-manrope text-4xl font-bold my-14">
+        Archived Positions
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-1 gap-3 md:mx-auto">
         {Array.from({ length: 4 }).map((_, i) => (
           <div
