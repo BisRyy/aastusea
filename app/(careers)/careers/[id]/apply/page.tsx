@@ -1,21 +1,15 @@
 "use client";
 import Script from "next/script";
 
-export default function UserDetailsForm({
-  next,
-  finish,
-}: {
-  next: () => void;
-  finish: () => void;
-}) {
+export default function JobApplicationForm({}: {}) {
   return (
-    <div className="w-full h-[80vh]">
+    <div className="w-full">
       <iframe
-        data-tally-src="https://tally.so/r/np7jPq?transparentBackground=1"
+        data-tally-src="https://tally.so/embed/np7jPq?hideTitle=1&transparentBackground=1&dynamicHeight=1"
         width="100%"
         height="100%"
         style={{ border: 0, margin: 0 }}
-        title="AASTUSEA Registration form"
+        title="AASTUSEA Job Post form"
         className="h-full"
       ></iframe>
 

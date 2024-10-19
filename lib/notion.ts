@@ -119,7 +119,6 @@ export const fetchPositions = React.cache(async (status?: string) => {
 });
 
 export const fetchPositionById = React.cache(async (id: any) => {
-  console.log(id);
   return notion.databases
     .query({
       database_id: process.env.NOTION_POSITIONS_DATABASE_ID!,
