@@ -1,14 +1,16 @@
 import React from "react";
-import { fetchPositions } from "@/lib/notion";
+import { fetchApplicantCount, fetchPositions } from "@/lib/notion";
 import Image from "next/image";
 import LoadMoreButton from "@/app/(blog)/blog/button";
 import Link from "next/link";
 import { ListEndIcon, MapPin, Timer, TimerIcon } from "lucide-react";
 import { getDateStr, shimmer, shimmerDark } from "@/lib/utils";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 export default async function BentoGridDemo() {
   const positions = await fetchPositions();
   const pastPositions = await fetchPositions("Archived");
+  const applicantCount = await fetchApplicantCount("All");
 
   if (!positions)
     return (
@@ -25,6 +27,12 @@ export default async function BentoGridDemo() {
       <p className="text-lg text-center text-gray-600 mb-10  dark:text-gray-400">
         Check out our open positions and apply to join our team.
       </p>
+      <div className="flex items-center justify-center mb-10">
+        <PersonIcon className="mr-2" />
+        <p className="text-gray-700 dark:text-gray-400">
+          {applicantCount} applicantions received.
+        </p>
+      </div>
       {/* <pre>{JSON.stringify(positions[0], null, 2)}</pre> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 mx-1 gap-3 md:mx-auto">
         {positions.map((position: any, i: number): any => (

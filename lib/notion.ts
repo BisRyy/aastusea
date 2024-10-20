@@ -131,3 +131,30 @@ export const fetchPositionById = React.cache(async (id: any) => {
     })
     .then((response) => response.results[0] as PageObjectResponse | undefined);
 });
+
+// applicant count for a position
+export const fetchApplicantCount = React.cache(async (position: string) => {
+  if (!position) {
+    return 0;
+  }
+
+  if (position === "All") {
+    const response = await notion.databases.query({
+      database_id: process.env.NOTION_APPLICATIONS_DATABASE_ID!,
+    });
+
+    return response.results.length;
+  }
+
+  const response = await notion.databases.query({
+    database_id: process.env.NOTION_APPLICATIONS_DATABASE_ID!,
+    filter: {
+      property: "position",
+      rich_text: {
+        contains: position,
+      },
+    },
+  });
+
+  return response.results.length;
+});
