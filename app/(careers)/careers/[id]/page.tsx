@@ -1,4 +1,5 @@
 import {
+  fetchApplicantCount,
   fetchBlogBySlug,
   fetchBlogs,
   fetchPageBlocks,
@@ -94,6 +95,7 @@ export default async function JobPostDetails({
 }) {
   const position = await fetchPositionById(params.id);
   const user = await currentUser();
+
   //   const positions = await fetchBlogs();
   if (!position) {
     return (
@@ -102,6 +104,10 @@ export default async function JobPostDetails({
       </section>
     );
   }
+
+  const applicantCount = await fetchApplicantCount(
+    (position.properties.Title as any)?.title[0]?.plain_text
+  );
 
   if (!user) {
     return null;
@@ -173,7 +179,7 @@ export default async function JobPostDetails({
               </span>
             ))}
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-1 items-end">
             {(position.properties.Deadline as any)?.date.start && (
               <div className="year">
                 {(position.properties.Status as any)?.status.name === "Active"
@@ -182,16 +188,22 @@ export default async function JobPostDetails({
                 {getDateStr((position.properties.Deadline as any)?.date.start)}
               </div>
             )}
+            <div className="">
+              {applicantCount} applicant{applicantCount !== 1 && "s"}
+            </div>
           </div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
+
         {(position.properties.Status as any)?.status.name === "Active" && (
           <Button
             variant="default"
             className="mt-8 w-full text-md text-white dark:text-white"
           >
             <Link
-              href={`/careers/${params.id}/apply?userId=${user.id}&position=${
+              href={`/careers/${params.id}/apply?userId=${user.id}&positionId${
+                params.id
+              }position=${
                 (position.properties.Title as any)?.title[0]?.plain_text
               }`}
               className="no-underline w-full text-white dark:text-white"
@@ -201,6 +213,11 @@ export default async function JobPostDetails({
             </Link>
           </Button>
         )}
+        <div className="flex gap-4 justify-end items-end w-full">
+          <div className="">
+            {applicantCount} applicant{applicantCount !== 1 && "s"}
+          </div>
+        </div>
       </div>
     </div>
   );
