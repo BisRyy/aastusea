@@ -24,7 +24,7 @@ export default function Loading() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/blog">Blogs</BreadcrumbLink>
+            <BreadcrumbLink href="/careers">Positions</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

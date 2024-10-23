@@ -9,7 +9,7 @@ import { PersonIcon } from "@radix-ui/react-icons";
 
 export default async function BentoGridDemo() {
   const positions = await fetchPositions();
-  const pastPositions = await fetchPositions("Archived");
+  const pastPositions = await fetchPositions("Archive");
   const applicantCount = await fetchApplicantCount("All");
 
   if (!positions)
