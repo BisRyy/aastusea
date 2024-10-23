@@ -201,9 +201,10 @@ export default async function JobPostDetails({
             className="mt-8 w-full text-md text-white dark:text-white"
           >
             <Link
-              href={`/careers/${params.id}/apply?userId=${user.id}&positionId=${
-                params.id
-              }&position=${
+              href={`/careers/${params.id}/apply?jobUrl=${
+                (position.properties.URL as any)?.url ||
+                "https://tally.so/r/np7jPq"
+              }&userId=${user.id}&positionId=${params.id}&position=${
                 (position.properties.Title as any)?.title[0]?.plain_text
               }`}
               className="no-underline w-full text-white dark:text-white"
