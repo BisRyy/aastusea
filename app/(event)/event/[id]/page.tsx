@@ -85,8 +85,6 @@ export default async function EventPage({
     return <div>Post not found</div>;
   }
 
-  console.log(event);
-
   let blocks = await fetchPageBlocks(event.id);
 
   const renderer = new NotionRenderer({
